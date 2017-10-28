@@ -1,2 +1,2 @@
-# website
-Open source repository of the Bananium Labs website.
+#Bananium Labs - Main Website
+Open source repository of the Bananium Labs main website.
