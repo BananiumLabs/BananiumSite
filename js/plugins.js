@@ -1,3 +1,5 @@
+// Created by the HTML5Boilerplate team; edited and maintained by the BananiumLabs team.
+
 // Avoid `console` errors in browsers that lack a console.
 (function() {
     var method;
@@ -22,3 +24,4 @@
 }());
 
 // Place any jQuery/helper plugins in here.
+ 
