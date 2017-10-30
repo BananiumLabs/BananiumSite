@@ -1,7 +1,10 @@
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
+var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
+    target: 'node',
+    externals: [nodeExternals()],
     context: __dirname,
     devtool: debug ? "inline-sourcemap" : null,
     entry: "./js/main.js",
