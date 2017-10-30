@@ -4,14 +4,19 @@
   "description": "BananiumLabs Website",
   "main": "webpack.config.js",
   "dependencies": {
+  },
+  "devDependencies": {
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3",
     "webpack-node-externals": "^1.6.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot"
+    "start:hot": "webpack-dev-server --hot",
+    "start": "webpack-dev-server --open --progress --colors --profile --watch",
+    "build": "npm run clean:dist && webpack-dev-server --progress --colors --profile",
+    "clean:dist": "npm run rimraf -- dist",
+    "rimraf": "rimraf"
   },
   "repository": {
     "type": "git",
