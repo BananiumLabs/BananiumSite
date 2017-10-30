@@ -1,7 +1,7 @@
 {
     "icons": [{
-        "src": "icon.png",
-        "sizes": "192x192",
+        "src": "img/icon.png",
+        "sizes": "1024x1024",
         "type": "image/png"
     }],
     "start_url": "/"
