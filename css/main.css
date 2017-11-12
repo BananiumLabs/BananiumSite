@@ -118,7 +118,9 @@ textarea {
 		text-align: center;
 	}
 
-
+#sidenav-overlay {
+    z-index: 900 !important;
+}
 
 
 

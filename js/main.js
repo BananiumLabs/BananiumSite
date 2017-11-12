@@ -4,6 +4,7 @@
 $(document).ready(function (e) {
     $('#header').load('header.html');
     $('#footer').load('footer.html');
+    
 
     /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
     particlesJS.load('particles-js', 'js/particles.json', function () {
