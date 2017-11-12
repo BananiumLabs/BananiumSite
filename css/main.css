@@ -111,14 +111,12 @@ textarea {
 		-ms-justify-content: center;
 		justify-content: center;
 		cursor: default;
-		height: 100vh;
+		height: 95vh;
 		min-height: 35em;
 		overflow: hidden;
 		position: relative;
 		text-align: center;
 	}
-
-
 
 
 
