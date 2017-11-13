@@ -8,9 +8,9 @@
 		overflow: hidden;
 		position: relative;
         text-align: center;
-        z-index: -15;
         background-color: black;
 
+        z-index: 0;
        
 }
 
@@ -46,7 +46,7 @@
     opacity: 1;
     -webkit-transition: opacity .8s ease, -webkit-transform 1.4s ease;
     transition: opacity .8s ease, transform 1.4s ease;
-    z-index: -5;
+    /* z-index: -1; */
 }
 
 #particles-js {
@@ -77,9 +77,16 @@
 }
 
 #banner-icon {
+    z-index: 100;
     opacity: 0;
-    animation: 1s ease-in-out 3s 1 banner-icon;
-    animation-fill-mode: forwards;
+    animation: 1s ease-in-out 3s 1 banner-icon forwards;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#banner-icon:hover {
+    transform: scale(1.5);
 }
 
 @keyframes banner-icon {
