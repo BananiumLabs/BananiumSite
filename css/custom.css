@@ -85,9 +85,14 @@
     transition-duration: 0.4s;
 }
 
-#banner-icon:hover {
+#banner-icon:hover, #banner-down:hover {
     transform: scale(1.5);
 }
+
+#banner-down {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+} 
 
 @keyframes banner-icon {
     to {opacity: 1}
