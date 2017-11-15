@@ -1,3 +1,37 @@
+/* 
+#######################
+# Created by Ben Cuan #
+# BananiumLabs Site   #
+#######################
+*/
+
+/* Loading screen styles and animations */
+#loading {
+    position: fixed; /* Sit on top of the page content */
+    /* display: none; Hidden by default */
+    width: 100vw; /* Full height (cover the whole page) */
+    background-color: #ffab00; /* Amber accent-4 http://materializecss.com/color.html */
+    z-index: 2000;
+    animation:  1s ease-out 1.5s 1 loading-bg forwards;
+    
+}
+
+#loading-logo {
+    display: block;
+    margin: 0 auto;
+    animation:  1s ease-in-out 0s 1 loading-logo forwards;
+}
+
+@keyframes loading-logo {
+    0% {max-width: 5%}
+    100% {max-width: 100%; transform: rotate(360deg)}
+}
+
+@keyframes loading-bg {
+    from {bottom: 0}
+    to {bottom: 100vh}
+}
+
 /* Banner styles and animations */
 #banner {
 		display: flex;
@@ -11,22 +45,29 @@
         background-color: black;
 
         z-index: 0;
-       
 }
 
 #banner img {
     align-self: center;
     transform: translateY(3rem);
 
-    animation:  2s ease-in-out 0s 1 banner-opacity,
-                2s ease-in-out 2.5s 1 banner-height;
+    animation:  2s ease-in-out 1s 1 banner-init,
+                2s ease-in-out 3.5s 1 banner-height;
     animation-fill-mode: forwards;
 }
 
-@keyframes banner-opacity {
+/* Make banner larger on mobile devices */
+@keyframes banner-init {
     from {opacity: 0; max-width: 5%}
-    to {opacity: 1; max-width: 70%}
+    to {opacity: 1; max-width: 90%}
 }
+@media only screen and (min-width: 768px) {
+    @keyframes banner-init {
+        from {opacity: 0; max-width: 5%}
+        to {opacity: 1; max-width: 70%}
+    }
+}
+
 
 @keyframes banner-height {
     to {transform: translateY(-5rem)}
@@ -64,13 +105,6 @@
 }
 
 /* Icons */
-.circle {
-  display: inline-block;
-  border-radius: 8rem;
-  box-shadow: 0px 0px 1rem white;
-  padding: 1.5em 2em;
-
-}
 
 .larger:before {
     font-size: 500%;
@@ -79,7 +113,7 @@
 #banner-icon {
     z-index: 100;
     opacity: 0;
-    animation: 1s ease-in-out 3s 1 banner-icon forwards;
+    animation: 1s ease-in-out 4s 1 banner-icon forwards;
 
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
