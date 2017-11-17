@@ -137,3 +137,9 @@
 @keyframes banner-icon {
     to {opacity: 1}
 }
+
+
+#card-label {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
