@@ -1,4 +1,4 @@
-/* 
+/*
 #######################
 # Created by Ben Cuan #
 # BananiumLabs Site   #
@@ -13,7 +13,7 @@
     background-color: #ffab00; /* Amber accent-4 http://materializecss.com/color.html */
     z-index: 2000;
     animation:  1s ease-out 1.5s 1 loading-bg forwards;
-    
+
 }
 
 #loading-logo {
@@ -109,6 +109,9 @@
 .fill {
     height: 100vh;
 }
+.expand {
+    height: 100%;
+}
 
 /* Icons */
 
@@ -132,7 +135,7 @@
 #banner-down {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-} 
+}
 
 @keyframes banner-icon {
     to {opacity: 1}
