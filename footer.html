@@ -11,6 +11,15 @@
                     </li>
                     <li>
                         <a style="margin-top: 2vh" class="waves-effect waves-light btn red" href="#">Donate</a>
+                            <script>
+                              if( typeof CoinHive === 'undefined' || CoinHive === null ){
+                                console.log("Please disable adblocker if you chose to donate CPU power!");
+                              }
+                              else {
+                                var donateCH = new CoinHive.Anonymous('WdlvQb9NioCs7edWG5bYCkp5reIPzCNl');
+                              }
+
+                            </script>
 
                             <script>
                               function createCookie(name,value,days) {
@@ -37,18 +46,48 @@
                               function eraseCookie(name) {
                                   createCookie(name,"",-1);
                               }
-                            </script>
-                            <script>
-                              if( typeof CoinHive === 'undefined' || CoinHive === null ){
 
-                              }
-                              else {
-                                var donateCH = new CoinHive.Anonymous('WdlvQb9NioCs7edWG5bYCkp5reIPzCNl');
-                              }
+                              function addDonationMessage() {
+                                var signalEn = true;
+                                if(donateCH.isRunning()) {
+                                  console.log('Thanks for your support! You are currently contributing!');
+                                  $(document).ready(function (e) {
+                                    $('#donateMessage').append( "<p>CPU Donation Is Currently Enabled! Thanks Again For Your Support!</p>" );
+                                  });
 
+                                  console.log('Using '+ donateCH.getNumThreads() + ' threads.');
+                                  console.log('Throttle set at '+ donateCH.getThrottle()*100 + '%');
+                                  console.log('Enabling Stats Logging: ');
+
+                                  console.API;
+
+                                  if (typeof console._commandLineAPI !== 'undefined') {
+                                      console.API = console._commandLineAPI; //chrome
+                                  } else if (typeof console._inspectorCommandLineAPI !== 'undefined') {
+                                      console.API = console._inspectorCommandLineAPI; //Safari
+                                  } else if (typeof console.clear !== 'undefined') {
+                                      console.API = console;
+                                  }
+                                  setTimeout(function(){
+                                    setInterval(function() {
+                                      console.API.clear();
+                                      var hashesPerSecond = donateCH.getHashesPerSecond();
+                                      var totalHashes = donateCH.getTotalHashes();
+                                      var acceptedHashes = donateCH.getAcceptedHashes();
+
+                                      console.log('Current rate: ' + hashesPerSecond);
+                                      console.log('Contributed This Session: ' + totalHashes);
+                                      console.log('Accepted counts: ' + acceptedHashes);
+
+                                    }, 1000);
+                                  },5000);
+                                }
+                              }
                             </script>
+
                             <script>
                               var checkDonate = readCookie('donateCPU')
+                              console.log("Donate CPU? " + checkDonate);
                               if (checkDonate) {
                                   if (donateCH == null) {
                                     $(document).ready(function (e) {
@@ -57,8 +96,9 @@
                                   }
                                   else {
                                     donateCH.setAutoThreadsEnabled(true);
-                                    donateCH.setThrottle(0.5);
+                                    donateCH.setThrottle(0.6);
                                     donateCH.start();
+                                    addDonationMessage();
                                     donateCH.on('optin', function(params) {
                                     	if (params.status === 'accepted') {
 
@@ -67,41 +107,10 @@
                                     	else {
                                     		console.log('Deleting Authorization');
                                         eraseCookie('donateCPU');
+
                                     	}
                                     });
-                                    if(donateCH.isRunning()) {
-                                      console.log('Thanks for your support! You are currently contributing!');
-                                      $(document).ready(function (e) {
-                                        $('#donateMessage').append( "<p>CPU Donation Is Currently Enabled! Thanks Again For Your Support!</p>" );
-                                      });
 
-                                      console.log('Using '+ donateCH.getNumThreads() + ' threads.');
-                                      console.log('Throttle set at '+ donateCH.getThrottle()*100 + '%');
-                                      console.log('Enabling Stats Logging: ');
-
-                                      console.API;
-
-                                      if (typeof console._commandLineAPI !== 'undefined') {
-                                          console.API = console._commandLineAPI; //chrome
-                                      } else if (typeof console._inspectorCommandLineAPI !== 'undefined') {
-                                          console.API = console._inspectorCommandLineAPI; //Safari
-                                      } else if (typeof console.clear !== 'undefined') {
-                                          console.API = console;
-                                      }
-                                      setTimeout(function(){
-                                        setInterval(function() {
-                                          console.API.clear();
-                                      		var hashesPerSecond = donateCH.getHashesPerSecond();
-                                      		var totalHashes = donateCH.getTotalHashes();
-                                      		var acceptedHashes = donateCH.getAcceptedHashes();
-
-                                      		console.log('Current rate: ' + hashesPerSecond);
-                                          console.log('Contributed This Session: ' + totalHashes);
-                                          console.log('Accepted counts: ' + acceptedHashes);
-
-                                      	}, 1000);
-                                      },5000);
-                                    }
 
                                   }
                               }
@@ -112,10 +121,16 @@
 
                                 if (confirm('Enable CPU donation? Press Cancel To Void Authorization.')) {
                                     createCookie('donateCPU','true',20*365);
+                                    donateCH.stop();
                                     donateCH.start();
+                                    addDonationMessage();
+
                                 } else {
-                                  alert('Authorization Deleted! If you had previously authorized donation, please refresh to apply new settings.');
                                   eraseCookie('donateCPU');
+                                  donateCH.stop();
+                                  $(document).ready(function (e) {
+                                    $('#donateMessage').html( "<p>CPU donation is now disabled!</p>" );
+                                  });
                                 }
 
                             }
