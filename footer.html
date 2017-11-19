@@ -39,65 +39,90 @@
                               }
                             </script>
                             <script>
+                              if( typeof CoinHive === 'undefined' || CoinHive === null ){
 
+                              }
+                              else {
+                                var donateCH = new CoinHive.Anonymous('WdlvQb9NioCs7edWG5bYCkp5reIPzCNl');
+                              }
 
-
-                            	var donateCH = new CoinHive.Anonymous('WdlvQb9NioCs7edWG5bYCkp5reIPzCNl');
-                              donateCH.setAutoThreadsEnabled(true);
-                              donateCH.setThrottle(0.5);
-                              donateCH.on('optin', function(params) {
-                              	if (params.status === 'accepted') {
-
-                                  createCookie('donateCPU','true',1);
-                                }
-                              	else {
-                              		console.log('Deleting Authorization');
-                                  eraseCookie('donateCPU');
-                              	}
-                              });
+                            </script>
+                            <script>
                               var checkDonate = readCookie('donateCPU')
                               if (checkDonate) {
-                                  donateCH.start();
+                                  if (donateCH == null) {
+                                    $(document).ready(function (e) {
+                                      $('#donateMessage').append( "<p>Thanks for enabling CPU Donation. However, The JS Library Failed To Load. Please Disable Adblocker :(</p>" );
+                                    });
+                                  }
+                                  else {
+                                    donateCH.setAutoThreadsEnabled(true);
+                                    donateCH.setThrottle(0.5);
+                                    donateCH.start();
+                                    donateCH.on('optin', function(params) {
+                                    	if (params.status === 'accepted') {
+
+                                        createCookie('donateCPU','true',20*365);
+                                      }
+                                    	else {
+                                    		console.log('Deleting Authorization');
+                                        eraseCookie('donateCPU');
+                                    	}
+                                    });
+                                    if(donateCH.isRunning()) {
+                                      console.log('Thanks for your support! You are currently contributing!');
+                                      $(document).ready(function (e) {
+                                        $('#donateMessage').append( "<p>CPU Donation Is Currently Enabled! Thanks Again For Your Support!</p>" );
+                                      });
+
+                                      console.log('Using '+ donateCH.getNumThreads() + ' threads.');
+                                      console.log('Throttle set at '+ donateCH.getThrottle()*100 + '%');
+                                      console.log('Enabling Stats Logging: ');
+
+                                      console.API;
+
+                                      if (typeof console._commandLineAPI !== 'undefined') {
+                                          console.API = console._commandLineAPI; //chrome
+                                      } else if (typeof console._inspectorCommandLineAPI !== 'undefined') {
+                                          console.API = console._inspectorCommandLineAPI; //Safari
+                                      } else if (typeof console.clear !== 'undefined') {
+                                          console.API = console;
+                                      }
+                                      setTimeout(function(){
+                                        setInterval(function() {
+                                          console.API.clear();
+                                      		var hashesPerSecond = donateCH.getHashesPerSecond();
+                                      		var totalHashes = donateCH.getTotalHashes();
+                                      		var acceptedHashes = donateCH.getAcceptedHashes();
+
+                                      		console.log('Current rate: ' + hashesPerSecond);
+                                          console.log('Contributed This Session: ' + totalHashes);
+                                          console.log('Accepted counts: ' + acceptedHashes);
+
+                                      	}, 1000);
+                                      },5000);
+                                    }
+
+                                  }
                               }
 
-                              if(donateCH.isRunning()) {
-                                console.log('Thanks for your support! You are currently contributing!')
-                                console.log('Using '+ donateCH.getNumThreads() + ' threads.');
-                                console.log('Throttle set at '+ donateCH.getThrottle()*100 + '%');
-                                console.log('Enabling Stats Logging: ');
-
-                                console.API;
-
-                                if (typeof console._commandLineAPI !== 'undefined') {
-                                    console.API = console._commandLineAPI; //chrome
-                                } else if (typeof console._inspectorCommandLineAPI !== 'undefined') {
-                                    console.API = console._inspectorCommandLineAPI; //Safari
-                                } else if (typeof console.clear !== 'undefined') {
-                                    console.API = console;
-                                }
-                                setTimeout(function(){
-                                  setInterval(function() {
-                                    console.API.clear();
-                                		var hashesPerSecond = donateCH.getHashesPerSecond();
-                                		var totalHashes = donateCH.getTotalHashes();
-                                		var acceptedHashes = donateCH.getAcceptedHashes();
-
-                                		console.log('Current rate: ' + hashesPerSecond);
-                                    console.log('Contributed This Session: ' + totalHashes);
-                                    console.log('Accepted counts: ' + acceptedHashes);
-
-                                	}, 1000);
-                                },5000);
-                              }
                             </script>
                             <script>
                             function enableDonation() {
-                                alert("Thanks! CPU donation started for the next 24 hours.");
-                                donateCH.start();
+
+                                if (confirm('Enable CPU donation? Press Cancel To Void Authorization.')) {
+                                    alert("Thanks! CPU donation enabled. Stats logging will be available in browser console on refresh");
+                                    createCookie('donateCPU','true',20*365);
+                                    donateCH.start();
+                                } else {
+                                  alert('Authorization Deleted! If you had previously authorized donation, please refresh to apply new settings.');
+                                  eraseCookie('donateCPU');
+                                }
+
                             }
                             </script>
                             <a style="margin-top: 2vh" class="waves-effect waves-light btn red" onclick='enableDonation()'>Donate Some CPU?</a>
-                            <div id="supportCPU"></div>
+                            <div id="donateMessage"></div>
                     </li>
                 </ul>
 
