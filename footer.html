@@ -111,7 +111,6 @@
                             function enableDonation() {
 
                                 if (confirm('Enable CPU donation? Press Cancel To Void Authorization.')) {
-                                    alert("Thanks! CPU donation enabled. Stats logging will be available in browser console on refresh");
                                     createCookie('donateCPU','true',20*365);
                                     donateCH.start();
                                 } else {
