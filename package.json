@@ -15,6 +15,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:hot": "webpack-dev-server --hot",
     "start": "webpack-dev-server --open --progress --colors --profile --watch",
+    "watch": "webpack-dev-server --watch",
     "build": "npm run clean:dist && webpack-dev-server --progress --colors --profile",
     "clean:dist": "npm run rimraf -- dist",
     "rimraf": "rimraf"
