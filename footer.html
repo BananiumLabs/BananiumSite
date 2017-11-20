@@ -10,138 +10,17 @@
                         Help us continue developing amazing apps and products!
                     </li>
                     <li>
-                        <a style="margin-top: 2vh" class="waves-effect waves-light btn red" href="#">Donate</a>
-                            <script>
-                              if( typeof CoinHive === 'undefined' || CoinHive === null ){
-                                console.log("Please disable adblocker if you chose to donate CPU power!");
-                              }
-                              else {
-                                var donateCH = new CoinHive.Anonymous('WdlvQb9NioCs7edWG5bYCkp5reIPzCNl');
-                              }
-
-                            </script>
-
-                            <script>
-                              function createCookie(name,value,days) {
-                                var expires = "";
-                                if (days) {
-                                    var date = new Date();
-                                    date.setTime(date.getTime() + (days*24*60*60*1000));
-                                    expires = "; expires=" + date.toUTCString();
-                                }
-                                document.cookie = name + "=" + value + expires + "; path=/";
-                              }
-
-                              function readCookie(name) {
-                                  var nameEQ = name + "=";
-                                  var ca = document.cookie.split(';');
-                                  for(var i=0;i < ca.length;i++) {
-                                      var c = ca[i];
-                                      while (c.charAt(0)==' ') c = c.substring(1,c.length);
-                                      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-                                  }
-                                  return null;
-                              }
-
-                              function eraseCookie(name) {
-                                  createCookie(name,"",-1);
-                              }
-
-                              function addDonationMessage() {
-                                var signalEn = true;
-                                if(donateCH.isRunning()) {
-                                  console.log('Thanks for your support! You are currently contributing!');
-                                  $(document).ready(function (e) {
-                                    $('#donateMessage').append( "<p>CPU Donation Is Currently Enabled! Thanks Again For Your Support!</p>" );
-                                  });
-
-                                  console.log('Using '+ donateCH.getNumThreads() + ' threads.');
-                                  console.log('Throttle set at '+ donateCH.getThrottle()*100 + '%');
-                                  console.log('Enabling Stats Logging: ');
-
-                                  console.API;
-
-                                  if (typeof console._commandLineAPI !== 'undefined') {
-                                      console.API = console._commandLineAPI; //chrome
-                                  } else if (typeof console._inspectorCommandLineAPI !== 'undefined') {
-                                      console.API = console._inspectorCommandLineAPI; //Safari
-                                  } else if (typeof console.clear !== 'undefined') {
-                                      console.API = console;
-                                  }
-                                  setTimeout(function(){
-                                    setInterval(function() {
-                                      console.API.clear();
-                                      var hashesPerSecond = donateCH.getHashesPerSecond();
-                                      var totalHashes = donateCH.getTotalHashes();
-                                      var acceptedHashes = donateCH.getAcceptedHashes();
-
-                                      console.log('Current rate: ' + hashesPerSecond);
-                                      console.log('Contributed This Session: ' + totalHashes);
-                                      console.log('Accepted counts: ' + acceptedHashes);
-                                      console.log('')
-
-                                    }, 2500);
-                                  },5000);
-                                }
-                              }
-                            </script>
-
-                            <script>
-                              var checkDonate = readCookie('donateCPU')
-                              console.log("Donate CPU? " + checkDonate);
-                              if (checkDonate == "true") {
-                                  $('#donateBtn').text("Disable CPU donation?");
-                                  if (donateCH == null) {
-                                    $(document).ready(function (e) {
-                                      $('#donateMessage').append( "<p>Thanks for enabling CPU Donation. However, The JS Library Failed To Load. Please Disable Adblocker :(</p>" );
-                                    });
-                                  }
-                                  else {
-                                    donateCH.setAutoThreadsEnabled(true);
-                                    donateCH.setThrottle(0.6);
-                                    donateCH.start();
-                                    addDonationMessage();
-                                    donateCH.on('optin', function(params) {
-                                    	if (params.status === 'accepted') {
-
-                                        createCookie('donateCPU','true',20*365);
-                                      }
-                                    	else {
-                                    		console.log('Deleting Authorization');
-                                        eraseCookie('donateCPU');
-
-                                    	}
-                                    });
-
-
-                                  }
-                              }
-
-                            </script>
-                            <script>
-                            function enableDonation() {
-
-                                if (confirm('Enable CPU donation? Press Cancel To Void Authorization.')) {
-                                    createCookie('donateCPU','true',20*365);
-                                    donateCH.stop();
-                                    donateCH.setAutoThreadsEnabled(true);
-                                    donateCH.setThrottle(0.6);
-                                    donateCH.start();
-                                    addDonationMessage();
-
-                                } else {
-                                  eraseCookie('donateCPU');
-                                  donateCH.stop();
-                                  $(document).ready(function (e) {
-                                    $('#donateMessage').html( "<p>CPU donation is now disabled!</p>" );
-                                  });
-                                }
-
-                            }
-                            </script>
-                            <a style="margin-top: 2vh" class="waves-effect waves-light btn red" id="donateBtn" onclick='enableDonation()'>Donate Some CPU?</a>
-                            <div id="donateMessage"></div>
+                        <div class="row">
+                                <a style="margin-top: 2vh" class="waves-effect waves-light btn red" href="#">Donate</a>
+                                <div id="donateComponent" style="display: inline-block"></div>
+                        </div>
+                        <div id="donateMessage"></div>
                     </li>
+                    <script>
+                        $(document).ready(function (e) {
+                            $('#donateComponent').load('donateCPU.html');
+                        });
+                    </script>
                 </ul>
 
             </div>
