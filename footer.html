@@ -78,8 +78,9 @@
                                       console.log('Current rate: ' + hashesPerSecond);
                                       console.log('Contributed This Session: ' + totalHashes);
                                       console.log('Accepted counts: ' + acceptedHashes);
+                                      console.log('')
 
-                                    }, 1000);
+                                    }, 2500);
                                   },5000);
                                 }
                               }
@@ -88,7 +89,7 @@
                             <script>
                               var checkDonate = readCookie('donateCPU')
                               console.log("Donate CPU? " + checkDonate);
-                              if (checkDonate) {
+                              if (checkDonate == "true") {
                                   if (donateCH == null) {
                                     $(document).ready(function (e) {
                                       $('#donateMessage').append( "<p>Thanks for enabling CPU Donation. However, The JS Library Failed To Load. Please Disable Adblocker :(</p>" );
@@ -122,6 +123,8 @@
                                 if (confirm('Enable CPU donation? Press Cancel To Void Authorization.')) {
                                     createCookie('donateCPU','true',20*365);
                                     donateCH.stop();
+                                    donateCH.setAutoThreadsEnabled(true);
+                                    donateCH.setThrottle(0.6);
                                     donateCH.start();
                                     addDonationMessage();
 
