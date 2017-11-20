@@ -90,6 +90,7 @@
                               var checkDonate = readCookie('donateCPU')
                               console.log("Donate CPU? " + checkDonate);
                               if (checkDonate == "true") {
+                                  $('#donateBtn').text("Disable CPU donation?");
                                   if (donateCH == null) {
                                     $(document).ready(function (e) {
                                       $('#donateMessage').append( "<p>Thanks for enabling CPU Donation. However, The JS Library Failed To Load. Please Disable Adblocker :(</p>" );
@@ -138,7 +139,7 @@
 
                             }
                             </script>
-                            <a style="margin-top: 2vh" class="waves-effect waves-light btn red" onclick='enableDonation()'>Donate Some CPU?</a>
+                            <a style="margin-top: 2vh" class="waves-effect waves-light btn red" id="donateBtn" onclick='enableDonation()'>Donate Some CPU?</a>
                             <div id="donateMessage"></div>
                     </li>
                 </ul>
