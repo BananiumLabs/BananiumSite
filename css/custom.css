@@ -180,7 +180,6 @@
 
 #card-label {
   padding-top: 2vh;
-  padding-bottom: 2vh;
 }
 
 /* Attaches to the bottom of the card contents */
@@ -191,4 +190,21 @@
     bottom: 0;
     left: 0;
 }
+
+.nopad {
+    padding: 0 !important;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#reveal-text {
+    margin-left: 2vh;
+    margin-bottom: 1vh;
+    margin-top: 0;
+}
+
+#card-close {
+    width: 0%;
+}
+
 
