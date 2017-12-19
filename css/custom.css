@@ -223,3 +223,24 @@
     padding: 0.5vw;
 
 }
+
+/* ======================================================
+    Developer Section
+   ======================================================*/
+#dev-name {
+    margin: 0;
+    padding: 1vw;
+}
+
+#dev-image {
+    margin: 2vh;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    max-width: 10vw;
+    max-height: 10vw;
+}
+
+.weight {
+    font-weight: 400 !important;
+}
