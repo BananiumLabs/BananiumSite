@@ -227,6 +227,10 @@
 /* ======================================================
     Developer Section
    ======================================================*/
+#dev-card {
+    border-radius: 1vh;
+}
+
 #dev-name {
     margin: 0;
     padding: 1vw;
@@ -243,4 +247,14 @@
 
 .weight {
     font-weight: 400 !important;
+}
+
+.tag {
+    color: grey;
+    font-weight: 200;
+    font-size: 2vh;
+}
+
+.card-action {
+    padding: 1vw !important;
 }
