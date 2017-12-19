@@ -1,11 +1,14 @@
 <script>
     if (typeof CoinHive === 'undefined' || CoinHive === null) {
-        console.log("Please disable adblocker if you chose to donate CPU power!");
+        console.log("Please disable adblocker if you would like to donate CPU power!");
+        $(document).ready(function (e) {
+            $('#donateBtn').attr("disabled", "disabled");
+            $('#donateMessage').append("ModuleError: Resources failed to load.<br />Please disable adblocker if you would like to donate CPU power! ");
+        });
     }
     else {
         var donateCH = new CoinHive.Anonymous('WdlvQb9NioCs7edWG5bYCkp5reIPzCNl');
     }
-
 </script>
 
 <script>
@@ -35,8 +38,14 @@
     }
 
     function addDonationMessage() {
+        if (donateCH == null) {
+            $(document).ready(function (e) {
+                $('#donateMessage').append("<p>Thanks for enabling CPU Donation. However, The JS Library Failed To Load. Please Disable Adblocker :(</p>");
+                
+            });
+        }
         var signalEn = true;
-        if (donateCH.isRunning()) {
+        if (donateCH != null && donateCH.isRunning()) {
             console.log('Thanks for your support! You are currently contributing!');
             $(document).ready(function (e) {
                 $('#donateMessage').append("<p>CPU Donation Is Currently Enabled! Thanks Again For Your Support!</p>");
@@ -90,17 +99,13 @@
             addDonationMessage();
             donateCH.on('optin', function (params) {
                 if (params.status === 'accepted') {
-
                     createCookie('donateCPU', 'true', 20 * 365);
                 }
                 else {
                     console.log('Deleting Authorization');
                     eraseCookie('donateCPU');
-
                 }
             });
-
-
         }
     }
 
