@@ -211,7 +211,7 @@
     Section Headings
    ======================================================*/
 #section-heading {
-    font-family: "Century Gothic";
+    font-family: "Century Gothic", "Roboto";
     font-weight: bold;
     font-size: 5vh;
     text-align: center;
