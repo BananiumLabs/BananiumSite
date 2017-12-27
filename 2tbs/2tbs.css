@@ -130,7 +130,7 @@
 /* Button to scroll down */
 #banner-down {
     -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+    transition-duration: 1s;
 }
 
 @keyframes banner-icon {
@@ -176,15 +176,19 @@
 #section-heading {
     font-family: "Century Gothic", "Roboto";
     font-weight: bold;
-    font-size: 5vh;
+    font-size: 4.5vh;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3vh;
+    margin-top: 5vh;
     width: 100%;
-    border-radius: 3vh;
-    padding: 0.5vw;
+    border-radius: 2vh;
+    padding: 0.25vw;
 
+}
+
+#section-heading h1 {
+    color: white;
 }
 
 /* ======================================================
