@@ -1,0 +1,10 @@
+.card {
+    max-width: 350px;
+    align-content: center;
+}
+
+#footer .lesscontent {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
