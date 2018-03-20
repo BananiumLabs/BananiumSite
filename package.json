@@ -4,6 +4,7 @@
   "description": "BananiumLabs Website",
   "main": "webpack.config.js",
   "dependencies": {
+    "npm": "^5.7.1",
     "particles.js": "^2.0.0"
   },
   "devDependencies": {
