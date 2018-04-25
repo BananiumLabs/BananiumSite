@@ -3,12 +3,8 @@
 $(document).ready(function () {
 
     //Init sidenav
-    $(".button-collapse").sideNav({
-        closeOnClick: true,
-        draggable: true
-    });
-
-
+    console.log($('.sidenav'));
+    $('.sidenav').sidenav();
     // Select all links with hashes
     $('a[href*="#"]')
         // Remove links that don't actually link to anything

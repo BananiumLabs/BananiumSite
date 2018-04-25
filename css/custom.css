@@ -87,7 +87,7 @@
 }
 
 /* Sidenav */
-#sidenav-overlay {
+.sidenav-overlay {
     z-index: 900 !important;
 }
 
