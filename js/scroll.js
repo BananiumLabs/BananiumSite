@@ -5,6 +5,7 @@ $(document).ready(function () {
     //Init sidenav
     console.log($('.sidenav'));
     $('.sidenav').sidenav();
+    
     // Select all links with hashes
     $('a[href*="#"]')
         // Remove links that don't actually link to anything

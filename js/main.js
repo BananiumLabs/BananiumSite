@@ -8,6 +8,11 @@ $(document).ready(function (e) {
     $('#footer').load('footer.html');
     $('#supportCPU').load('donateCPU.html');
 
+    //Init tooltips
+    $(document).ready(function () {
+        $('.tooltipped').tooltip();
+    });
+    
     /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
     particlesJS.load('particles-js', 'js/particles.json', function () {
         console.log('callback - particles.js config loaded');
