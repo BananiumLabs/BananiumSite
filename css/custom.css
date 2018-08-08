@@ -207,11 +207,15 @@
     width: 0%;
 }
 
+.card-rounded {
+    border-radius: 10px !important;
+}
+
 /* ======================================================
     Section Headings
    ======================================================*/
 #section-heading {
-    font-family: "Century Gothic", "Roboto";
+    font-family: "Abel", "Roboto", sans-serif;
     font-weight: bold;
     font-size: 5vh;
     text-align: center;
