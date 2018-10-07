@@ -4,13 +4,14 @@
   "description": "BananiumLabs Website",
   "main": "webpack.config.js",
   "dependencies": {
-    "npm": "^5.7.1",
+    "npm": "^6.4.1",
     "particles.js": "^2.0.0"
   },
   "devDependencies": {
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3",
-    "webpack-node-externals": "^1.6.0"
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
