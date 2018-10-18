@@ -14,7 +14,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "phantomjs phantomtest.js index.html",
     "start:hot": "webpack-dev-server --hot",
     "start": "webpack-dev-server --open --progress --colors --profile --watch",
     "watch": "webpack-dev-server --watch",
