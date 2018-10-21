@@ -14,3 +14,4 @@ Open source repository of the Bananium Labs main website as well as the Two Tera
  - **Ben Cuan** - Main web developer, UI/UX
  - **Eric Qian** - Web developer, server manager
  - **Vikram Peddinti** - Web developer and contributor
+  - **Akash Basu** - Web developer and contributor
