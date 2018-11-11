@@ -1,0 +1,264 @@
+/*
+#######################
+# Created by Ben Cuan #
+# BananiumLabs Site   #
+#######################
+*/
+
+/* ======================================================
+    Loading screen styles and animations 
+   ======================================================*/
+
+/* Background */
+#loading {
+    position: fixed; /* Sit on top of the page content */
+    /* display: none; Hidden by default */
+    width: 100vw; /* Full height (cover the whole page) */
+    background-color: #ffab00; /* Amber accent-4 http://materializecss.com/color.html */
+    z-index: 2000;
+    animation:  1s ease-out 1.5s 1 loading-bg forwards;
+
+}
+
+#loading-logo {
+    display: block;
+    margin: 0 auto;
+    animation:  1s ease-in-out 0s 1 loading-logo forwards;
+}
+
+@keyframes loading-logo {
+    0% {max-width: 10%}
+    100% {max-width: 70%; transform: rotate(360deg)}
+}
+@media only screen and (min-width: 768px) {
+    @keyframes loading-logo {
+        0% {max-width: 1%}
+        100% {max-width: 30%; transform: rotate(360deg)}
+    }
+}
+
+@keyframes loading-bg {
+    from {bottom: 0}
+    to {bottom: 100vh}
+}
+
+/* ======================================================
+    Banner styles and animations
+   ======================================================*/
+
+#banner {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		cursor: default;
+		min-height: 35em;
+		overflow: hidden;
+		position: relative;
+        text-align: center;
+        background-color: black;
+
+        z-index: 0;
+}
+
+#banner img {
+    align-self: center;
+    transform: translateY(3rem);
+
+    animation:  2s ease-in-out 1s 1 banner-init,
+                2s ease-in-out 3.5s 1 banner-height;
+    animation-fill-mode: forwards;
+}
+
+/* Make banner larger on mobile devices */
+@keyframes banner-init {
+    from {opacity: 0; max-width: 5%}
+    to {opacity: 1; max-width: 90%}
+}
+@media only screen and (min-width: 768px) {
+    @keyframes banner-init {
+        from {opacity: 0; max-width: 5%}
+        to {opacity: 1; max-width: 70%}
+    }
+}
+
+
+@keyframes banner-height {
+    to {transform: translateY(-5rem)}
+}
+
+/* Sidenav */
+.sidenav-overlay {
+    z-index: 900 !important;
+}
+
+/* ======================================================
+    Particle.js
+   ======================================================*/
+   
+#particles-js canvas {
+    display: block;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+    -webkit-transition: opacity .8s ease, -webkit-transform 1.4s ease;
+    transition: opacity .8s ease, transform 1.4s ease;
+    /* z-index: -1; */
+}
+
+#particles-js {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -10 !important;
+    top: 0;
+    left: 0;
+}
+
+/* Make div fill 100% of screen height */
+.fill {
+    height: 100vh;
+}
+.expand {
+    height: 100%;
+}
+
+/* ======================================================
+    Icons
+   ======================================================*/
+
+.larger:before {
+    font-size: 500%;
+}
+
+.icon-center {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.icon-left {
+    display: inline-block;
+    width: 49%;
+    text-align: left;
+    padding-left: 0.5vw;
+}
+
+.icon-right {
+    display: inline-block;
+    width: 49%;
+    text-align: right;
+    padding-right: 0.5vw;
+}
+
+#banner-icon {
+    z-index: 100;
+    opacity: 0;
+    animation: 1s ease-in-out 4s 1 banner-icon forwards;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#banner-icon:hover, #banner-down:hover {
+    transform: scale(1.5);
+}
+
+/* Button to scroll down */
+#banner-down {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+@keyframes banner-icon {
+    to {opacity: 1}
+}
+
+/* ======================================================
+    Cards
+   ======================================================*/
+
+#card-label {
+  padding-top: 2vh;
+}
+
+/* Attaches to the bottom of the card contents */
+#card-bottom {
+    padding: 1vh;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.nopad {
+    padding: 0 !important;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#reveal-text {
+    margin-left: 2vh;
+    margin-bottom: 1vh;
+    margin-top: 0;
+}
+
+#card-close {
+    width: 0%;
+}
+
+.card-rounded {
+    border-radius: 10px !important;
+}
+
+/* ======================================================
+    Section Headings
+   ======================================================*/
+#section-heading {
+    font-family: "Abel", "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 5vh;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3vh;
+    width: 100%;
+    border-radius: 3vh;
+    padding: 0.5vw;
+
+}
+
+/* ======================================================
+    Developer Section
+   ======================================================*/
+#dev-card {
+    border-radius: 1vh;
+}
+
+#dev-name {
+    margin: 0;
+    padding: 1vw;
+}
+
+#dev-image {
+    margin: 2vh;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    max-width: 10vw;
+    max-height: 10vw;
+}
+
+.weight {
+    font-weight: 400 !important;
+}
+
+.tag {
+    color: grey;
+    font-weight: 200;
+    font-size: 2vh;
+}
+
+.card-action {
+    padding: 1vw !important;
+}

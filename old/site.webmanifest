@@ -1,0 +1,8 @@
+{
+    "name": "BananiumLabs Website",
+    "short_name": "BananiumLabs",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "Official Site of Bananium Labs"
+}
