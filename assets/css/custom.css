@@ -9,6 +9,10 @@
     color: #000;
 }
 
+.header-top-area {
+    height: 8vh;
+}
+
 #header {
     height: 10vh;
     background-color: black;

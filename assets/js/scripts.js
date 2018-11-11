@@ -11,7 +11,7 @@
         $('#header').load('html/nav.html', function() {ready()});
         $('#banner').load('html/banner.html', function() {ready()});
         $('#about-fill').load('html/about.html', function() {ready()});
-        $('#team').load('html/team.html', function() {ready()});
+        $('#team-fill').load('html/team.html', function() {ready()});
         $('#projects').load('html/projects.html', function() {ready()});
         $('#footer').load('html/footer.html', function() {ready()});
 
@@ -101,7 +101,7 @@ function ready() {
     $('a.smoth-scroll').on("click", function (e) {
         var anchor = $(this);
         $('html, body').stop().animate({
-            scrollTop: $(anchor.attr('href')).offset().top - 60
+            scrollTop: $(anchor.attr('href')).offset().top - $(window).height() * 0.08
         }, 1000);
         e.preventDefault();
     });
