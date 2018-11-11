@@ -19,8 +19,12 @@
 }
 
 #header a {
-    color: #ffab00;
-    animation: 2s ease-in-out 2s 1 nav-fadein forwards;
+    color: white;
+    animation: nav-fadein 3.5s ease-in-out;
+}
+
+.selected {
+    color: #ffab00 !important;
 }
 
 /* ======================================================

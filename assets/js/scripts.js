@@ -16,6 +16,7 @@
         $('#footer').load('html/footer.html', function() {ready()});
 
         ready();
+        waypoints();
 
     });
 
@@ -129,4 +130,64 @@ function ready() {
         return false;
     });
         /*END SCROLL TO UP*/
+}
+
+
+function waypoints() {
+    // Setup waypoints
+    var home = new Waypoint({
+        element: document.getElementById('banner'),
+        handler: function (diretion) { waypointHandler('home-link') },
+        offset: $(window).height() * 0.08
+    })
+
+    var about = new Waypoint({
+        element: document.getElementById('about-fill'),
+        handler: function (diretion) { waypointHandler('about-link') },
+        offset: $(window).height() * 0.08
+    })
+    var services = new Waypoint({
+        element: document.getElementById('services'),
+        handler: function (diretion) { waypointHandler('services-link') },
+        offset: $(window).height() * 0.08
+    })
+    var team = new Waypoint({
+        element: document.getElementById('team-fill'),
+        handler: function (diretion) { waypointHandler('team-link') },
+        offset: $(window).height() * 0.08
+    })
+    var work = new Waypoint({
+        element: document.getElementById('work'),
+        handler: function (diretion) { waypointHandler('work-link') },
+        offset: $(window).height() * 0.08
+    })
+    var blog = new Waypoint({
+        element: document.getElementById('blog'),
+        handler: function (diretion) { waypointHandler('blog-link') },
+        offset: $(window).height() * 0.08
+    })
+
+    var contact = new Waypoint({
+        element: document.getElementById('footer'),
+        handler: function (diretion) { waypointHandler('contact-link') },
+        offset: $(window).height() * 0.08
+    })
+}
+
+/**
+ * Runs as the handler for the Waypoint system to highlight a header link when on the correct section.
+ * @param {string} elementId The ID of the element to highlight. Do not include the prefix #
+ */
+function waypointHandler(elementId) {
+    clearSelections();
+    console.log(elementId);
+    $('#' + elementId).addClass('selected');
+    return this;
+}
+
+/**
+ * Clears the '.selected' class on all links on the banner.
+ */
+function clearSelections() {
+    $('.selected').removeClass('selected');
 }
