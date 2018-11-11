@@ -12,7 +12,10 @@
         $('#banner').load('html/banner.html', function() {ready()});
         $('#about-fill').load('html/about.html', function() {ready();counter();});
         $('#team-fill').load('html/team.html', function() {ready()});
-        $('#projects').load('html/projects.html', function() {ready()});
+        $('#projects-fill').load('html/projects.html', function() {ready()});
+        $('#services-fill').load('html/services.html', function() {ready()});
+        $('#blog-fill').load('html/blog.html', function() {ready()});
+        $('#contact-fill').load('html/contact.html', function() {ready()});
         $('#footer').load('html/footer.html', function() {ready()});
 
         ready();
@@ -156,13 +159,13 @@ function waypoints() {
         handler: function (diretion) { waypointHandler('team-link') },
         offset: $(window).height() * 0.08
     })
-    var work = new Waypoint({
-        element: document.getElementById('work'),
-        handler: function (diretion) { waypointHandler('work-link') },
+    var projects = new Waypoint({
+        element: document.getElementById('projects'),
+        handler: function (diretion) { waypointHandler('projects-link') },
         offset: $(window).height() * 0.08
     })
     var blog = new Waypoint({
-        element: document.getElementById('blog'),
+        element: document.getElementById('blog-fill'),
         handler: function (diretion) { waypointHandler('blog-link') },
         offset: $(window).height() * 0.08
     })
