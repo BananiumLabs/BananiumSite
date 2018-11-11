@@ -6,12 +6,13 @@
     Ben Cuan
     Vikram Peddinti
     Eric Qian
+    Akash Basu
 
 # THANKS
 
-    <name>
+    HTML5 Boilerplate Team
 
 # TECHNOLOGY COLOPHON
 
     CSS3, HTML5
-    Apache Server Configs, jQuery, Modernizr, Normalize.css, Materializecss
+    Apache Server Configs, jQuery, Modernizr, Normalize.css, Bootstrap

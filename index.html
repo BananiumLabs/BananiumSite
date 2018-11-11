@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- SITE TITLE -->
-    <title>BananiumLabs Inc.</title>
+    <title>Bananium Labs</title>
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.ico" />
     <!-- BOOTSTRAP CSS-->
@@ -27,152 +27,26 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <!-- RESPONSIVE CSS-->
     <link href="assets/css/responsive.css" rel="stylesheet">
+    <!-- CUSTOM CSS-->
+    <link href="assets/css/custom.css" rel="stylesheet">
 
 </head>
 
 
 <body>
     <!-- START PRELOADER -->
-    <div class="preloader">
-        <div class="status">
-            <div class="status-mes"></div>
-        </div>
+    <div id="loading" class="fill">
+        <img src="assets/img/icon-v5.png" class="responsive-img" id="loading-logo">
     </div>
     <!-- / END PRELOADER -->
 
-    <!-- START HEADER AREA -->
-    <header id="home" class="welcome-hero-area">
-        <div class="header-top-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <!-- START LOGO -->
-                        <div class="logo">
-                            <a href="index.html">BananiumLabs</a>
-                        </div>
-                        <!-- END LOGO -->
-                    </div>
-                    <div class="col-md-9">
-                        <!-- START MAIN MENU -->
-                        <div class="mainmenu">
-                            <div class="navbar navbar-nobg">
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                </div>
-                                <div class="navbar-collapse collapse">
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <li class="active"><a class="smoth-scroll" href="#home">home</a>
-                                        </li>
-                                        <li><a class="smoth-scroll" href="#about">about</a>
-                                        </li>
-                                        <li><a class="smoth-scroll" href="#services">services</a>
-                                        </li>
-                                        <li><a class="smoth-scroll" href="#team">team</a>
-                                        </li>
-                                        <li><a class="smoth-scroll" href="#work">work</a>
-                                        <li><a class="smoth-scroll" href="#blog">blog</a>
-                                        </li>
-                                        <li><a class="smoth-scroll" href="#contact">contact</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END MAIN MENU -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END HEADER AREA -->
+    <div id="header">
+        <!-- Auto filled by nav.html -->
+    </div>
 
-        <!-- START SLIDER AREA -->
-        <div class="welcome-slider-area">
-            <div id="welcome-slide-carousel" class="carousel slide carousel-fade" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#welcome-slide-carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#welcome-slide-carousel" data-slide-to="1"></li>
-                    <li data-target="#welcome-slide-carousel" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <!-- START SINGLE SLIDE ITEM -->
-                    <div class="item active">
-                        <div class="single-slide-item slide-1">
-                            <div class="single-slide-item-table">
-                                <div class="single-slide-item-table-cell">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h2>we are students</h2>
-                                                <p>Insert content
-                                                    <br/>second line
-                                                </p>
-                                                <a class="slide-btn smoth-scroll" href="#contact">contact</a>
-                                                <a class="slide-btn smoth-scroll" href="#about">about</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END SINGLE SLIDE ITEM-->
-                    <!-- START SINGLE SLIDE ITEM-->
-                    <div class="item">
-                        <div class="single-slide-item slide-2">
-                            <div class="single-slide-item-table">
-                                <div class="single-slide-item-table-cell">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h2>we are 2_insertstuffhere</h2>
-                                                <p>Insert content
-                                                    <br/>second line
-                                                </p>
-                                                <a class="slide-btn smoth-scroll" href="#contact">contact</a>
-                                                <a class="slide-btn smoth-scroll" href="#about">about</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END SINGLE SLIDE ITEM -->
-                    <!-- START SINGLE SLIDE ITEM-->
-                    <div class="item">
-                        <div class="single-slide-item slide-3">
-                            <div class="single-slide-item-table">
-                                <div class="single-slide-item-table-cell">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h2>we are 3_insertstuffhere</h2>
-                                                <p>Insert content
-                                                    <br/>second line
-                                                </p>
-                                                <a class="slide-btn smoth-scroll" href="#contact">contact</a>
-                                                <a class="slide-btn smoth-scroll" href="#about">about</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END SINGLE SLIDE ITEM -->
-                    <a class="left welcome-control" href="#welcome-slide-carousel" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-                    <a class="right welcome-control" href="#welcome-slide-carousel" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-        </div>
-        <!-- END SLIDER AREA -->
-    </header>
-    <!-- END HEADER AREA -->
+    <div id="banner">
+
+    </div>
 
     <!-- START ABOUT US AREA -->
     <section id="about" class="about-us-area section-padding">
@@ -189,20 +63,16 @@
                             we have to have the hour-long debate surrounding whose account to associate our code to. What started
                             as a small group of three developers grew quickly, as we began to look for more members to attend
                             hackathons and contribute to our projects. So far, we have attended
-                            <strong>7</strong> hackathons (our projects are showcased below). We're also interested in game development-
+                            <strong>8</strong> hackathons (our projects are showcased below). We're also interested in game development-
                             our game projects are organized within
-                            <a href="https://bananiumlabs.com/2tbs">Two Terabyte Studios</a>.
+                            <a href="https://2tbs.bananiumlabs.com">Two Terabyte Studios</a>.
 
                             <br>
-                            <br> Bananium Labs is based at Monta Vista High School, in Cupertino, California. If you are a web developer
-                            at Monta Vista, and are familiar with HTML, CSS, JavaScript, TypeScript, AngularJS/2, PHP, Ionic/NativeScript,
-                            ReactJS, NodeJS, Ruby, Python, Polymer, and/or another similar language or framework, we want to
-                            meet with you!
+
                             <br>
-                            <br>
-                            Bananium Labs is in the process of acquiring 501c3 status after a focus shift to better fit our present purpose of
-                            developing new and exciting projects and inspiring others to pursue STEM education.
-                            <a href="mailto:contact@bananiumlabs.com">Email us</a> to let us know if you're interested in membership or collaboration.</p>
+                            Bananium Labs is a 501c3 tax-exempt organization, recently obtained after a focus shift to better fit our present purpose of
+                            developing new and exciting projects and inspiring others to pursue STEM education. //Insert mision here
+                            <a href="mailto:contact@bananiumlabs.com">Email us</a> if you're interested in membership or collaboration!</p>
                     </div>
                 </div>
                 <!-- END SECTION DESIGN AREA -->
@@ -450,7 +320,7 @@
                         <img src="https://avatars1.githubusercontent.com/u/5799869" alt="" class="img-responsive img-rounded" id="dev-image" />
                         <h4 class="team-member">Eric Qian</h4>
                         <h6>web developer</h6>
-                        <p>job_desc().</p>
+                        <p>@EnumC</p>
                         <ul class="team-social">
                             <li><a href="https://github.com/EnumC"><i class="fa fa-github"></i></a>
                             </li>
@@ -470,7 +340,7 @@
                         <img src="https://avatars2.githubusercontent.com/u/15005763" alt="" class="img-responsive img-rounded" id="dev-image" />
                         <h4 class="team-member">Ben Cuan</h4>
                         <h6>graphic designer</h6>
-                        <p>job_desc().</p>
+                        <p>@dbqeo</p>
                         <ul class="team-social">
                             <li><a href="https://github.com/dbqeo"><i class="fa fa-github"></i></a>
                             </li>
@@ -490,7 +360,7 @@
                         <img src="https://avatars3.githubusercontent.com/u/8906527" alt="" class="img-responsive img-rounded" id="dev-image" />
                         <h4 class="team-member">Vikram Peddinti</h4>
                         <h6>social marketing </h6>
-                        <p>job_desc().</p>
+                        <p>@DarkFlameX1</p>
                         <ul class="team-social">
                             <li><a href="https://github.com/DarkFlamex1"><i class="fa fa-github"></i></a>
                             </li>
@@ -504,41 +374,39 @@
                     </div>
                 </div>
                 <!-- END Vikram Peddinti - Card -->
-                <!-- START SINGLE TEAM -->
+                <!-- Start Akash Basu Card -->
                 <div class="col-md-4 col-sm-6">
                     <div class="single-team text-center">
-                        <img src="https://avatars1.githubusercontent.com/u/5799869" alt="" class="img-responsive img-rounded" id="dev-image" />
-                        <h4 class="team-member">John Doe</h4>
+                        <img src="https://avatars3.githubusercontent.com/u/33015666?s=400&v=4" alt="" class="img-responsive img-rounded" id="dev-image" />
+                        <h4 class="team-member">Akash Basu</h4>
                         <h6>web developer</h6>
-                        <p>job_desc().</p>
+                        <p>@Fujax</p>
                         <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-github"></i></a>
+                            <li><a href="https://github.com/Fujax"><i class="fa fa-github"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="https://www.linkedin.com/in/akash-basu-a2949a165/"><i class="fa fa-linkedin"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-envelope-square"></i></a>
+                            <li><a href="mailto:abasu924@gmail.com"><i class="fa fa-envelope-square"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-globe"></i></a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <!-- END SINGLE TEAM -->
-                <!-- START SINGLE TEAM -->
+                <!-- End Akash Basu Card -->
+
+                <!-- Start Alexey Kolechkin Card -->
                 <div class="col-md-4 col-sm-6">
                     <div class="single-team text-center">
-                        <img src="https://avatars2.githubusercontent.com/u/15005763" alt="" class="img-responsive img-rounded" id="dev-image" />
-                        <h4 class="team-member">Satya Raman</h4>
+                        <img src="https://avatars3.githubusercontent.com/u/33015666?s=400&v=4" alt="" class="img-responsive img-rounded" id="dev-image" />
+                        <h4 class="team-member">Alexey Kolechkin</h4>
                         <h6>graphic designer</h6>
-                        <p>job_desc().</p>
+                        <p>@Kuxe</p>
                         <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="https://github.com/Kuxxe"><i class="fa fa-github"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a href="https://www.linkedin.com/in/alexey-kolechkin-85841b158/"><i class="fa fa-linkedin"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-skype"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a>
+                           <li><a href="mailto:alexey.kolechkin@gmail.com"><i class="fa fa-envelope-square"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -547,23 +415,22 @@
                 <!-- START SINGLE TEAM -->
                 <div class="col-md-4 col-sm-6">
                     <div class="single-team text-center">
-                        <img src="https://avatars3.githubusercontent.com/u/8906527" alt="" class="img-responsive img-rounded" id="dev-image" />
-                        <h4 class="team-member">John Doe</h4>
+                        <img src="https://avatars3.githubusercontent.com/u/33015666?s=400&v=4" alt="" class="img-responsive img-rounded" id="dev-image" />
+                        <h4 class="team-member">Omar Hossain</h4>
                         <h6>social marketing </h6>
-                        <p>job_desc().</p>
+                        <p>@Epicrider</p>
                         <ul class="team-social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="https://github.com/Epicrider"><i class="fa fa-github"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a href="https://www.linkedin.com/in/omar-hossain-a2705a16a/"><i class="fa fa-linkedin"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-skype"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a>
+                            <li><a href="mailto:omar.hosain@gmail.com"><i class="fa fa-envelope-square"></i></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <!-- END SINGLE TEAM -->
+
             </div>
 
         </div>
@@ -790,47 +657,6 @@
         </div>
     </section>
     <!-- END WORK AREA -->
-
-    <!-- START WHAT CLIENT SAY AREA -->
-    <section class="what-client-say-area section-padding">
-        <div class="testimonial-section-inner">
-            <div class="container">
-                <div class="testimonial-list text-center">
-                    <!-- START SINGLE TESTIMONIAL -->
-                    <div class="single-testimonial">
-                        <div class="testimonial-author">
-                            <img src="assets/img/testimonial/1.jpg" alt="" />
-                        </div>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                        <h5>Mark Zuckerberg</h5>
-                        <h6>ceo of facebook</h6>
-                    </div>
-                    <!-- END SINGLE TESTIMONIAL -->
-                    <!-- START SINGLE TESTIMONIAL -->
-                    <div class="single-testimonial">
-                        <div class="testimonial-author">
-                            <img src="assets/img/testimonial/2.jpg" alt="" />
-                        </div>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                        <h5>Jack Dorsey</h5>
-                        <h6>ceo of twitter</h6>
-                    </div>
-                    <!-- END SINGLE TESTIMONIAL -->
-                    <!-- START SINGLE TESTIMONIAL -->
-                    <div class="single-testimonial">
-                        <div class="testimonial-author">
-                            <img src="assets/img/testimonial/3.jpg" alt="" />
-                        </div>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                        <h5>Sundar Pichai</h5>
-                        <h6>ceo of google</h6>
-                    </div>
-                    <!-- END SINGLE TESTIMONIAL -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END WHAT CLIENT SAY AREA -->
 
     <!-- START BLOG AREA -->
     <section id="blog" class="our-blog-area gry-bg section-padding">
@@ -1130,6 +956,8 @@
     <script src="assets/js/jquery.counterup.min.js"></script>
     <!-- MAGNIFICANT JS -->
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- PARTICLES JS -->
+    <script src="assets/js/particles.min.js"></script>
     <!-- GOOGLE MAP JS -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChJoxGL2coqWo3NdVla4EFmaKP6KXtxI0"></script>
     <script src="assets/js/gmap3.min.js"></script>

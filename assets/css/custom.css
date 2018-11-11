@@ -1,0 +1,240 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    width: 100%;
+    padding: 10px 0;
+    color: #000;
+}
+
+#header {
+    height: 10vh;
+    background-color: black;
+    opacity: 0;
+    animation: 2s ease-in-out 2s 1 nav-fadein forwards;
+}
+
+/* ======================================================
+    Loading screen styles and animations
+   ======================================================*/
+
+/* Background */
+
+#loading {
+    position: fixed;
+    /* Sit on top of the page content */
+    /* display: none; Hidden by default */
+    width: 100vw;
+    /* Full height (cover the whole page) */
+    background-color: #ffab00;
+    /* Amber accent-4 http://materializecss.com/color.html */
+    z-index: 2000;
+    animation: 1s ease-out 1.5s 1 loading-bg forwards;
+    display: flex;
+    align-items: center;
+}
+
+#loading-logo {
+    display: block;
+    margin: auto;
+    animation: 1s ease-in-out 0s 1 loading-logo forwards;
+}
+
+@keyframes loading-logo {
+    0% {
+        max-width: 10%
+    }
+    100% {
+        max-width: 70%;
+        transform: rotate(360deg)
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    @keyframes loading-logo {
+        0% {
+            max-width: 1%
+        }
+        100% {
+            max-width: 30%;
+            transform: rotate(360deg)
+        }
+    }
+}
+
+@keyframes loading-bg {
+    from {
+        bottom: 0
+    }
+    to {
+        bottom: 100vh
+    }
+}
+
+@keyframes nav-fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ======================================================
+    Banner styles and animations
+   ======================================================*/
+
+#banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: default;
+    min-height: 35em;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    background-color: black;
+    z-index: 0;
+    height: 90vh;
+}
+
+#banner img {
+    align-self: center;
+    transform: translateY(3rem);
+    animation: 2s ease-in-out 1s 1 banner-init, 2s ease-in-out 3.5s 1 banner-height;
+    animation-fill-mode: forwards;
+}
+
+/* Make banner larger on mobile devices */
+
+@keyframes banner-init {
+    from {
+        opacity: 0;
+        max-width: 5%
+    }
+    to {
+        opacity: 1;
+        max-width: 90%
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    @keyframes banner-init {
+        from {
+            opacity: 0;
+            max-width: 5%
+        }
+        to {
+            opacity: 1;
+            max-width: 70%
+        }
+    }
+}
+
+@keyframes banner-height {
+    to {
+        transform: translateY(-5rem)
+    }
+}
+
+/* Sidenav */
+
+.sidenav-overlay {
+    z-index: 900 !important;
+}
+
+/* ======================================================
+    Particle.js
+   ======================================================*/
+
+#particles-js canvas {
+    display: block;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+    -webkit-transition: opacity .8s ease, -webkit-transform 1.4s ease;
+    transition: opacity .8s ease, transform 1.4s ease;
+    /* z-index: -1; */
+}
+
+#particles-js {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -10 !important;
+    top: 0;
+    left: 0;
+}
+
+/* Make div fill 100% of screen height */
+
+.fill {
+    height: 100vh;
+}
+
+.expand {
+    height: 100%;
+}
+
+/* ======================================================
+    Icons
+   ======================================================*/
+
+.larger:before {
+    font-size: 300%;
+}
+
+.icon-center {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.icon-left {
+    display: inline-block;
+    width: 49%;
+    text-align: left;
+    padding-left: 0.5vw;
+}
+
+.icon-right {
+    display: inline-block;
+    width: 49%;
+    text-align: right;
+    padding-right: 0.5vw;
+}
+
+#banner-icon {
+    z-index: 100;
+    opacity: 0;
+    animation: 1s ease-in-out 4s 1 banner-icon forwards;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+}
+
+#banner-icon:hover,
+#banner-down:hover {
+    transform: scale(1.5);
+}
+
+/* Button to scroll down */
+
+#banner-down {
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+}
+
+@keyframes banner-icon {
+    to {
+        opacity: 1
+    }
+}
+
+#banner a {
+    color: white;
+}

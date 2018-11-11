@@ -600,7 +600,7 @@ ul.team-social i:hover {
 .project-complete-area {
     background-attachment: fixed;
     background-color: rgba(0, 0, 0, 0);
-    background-image: url("img/bg/counter-bg.jpg");
+    background-image: url("/assets/img/bg/counter-bg.jpg");
     background-size: cover;
     padding: 60px 0;
     position: relative;
@@ -775,7 +775,7 @@ ul.work li:hover {
     zoom: 1;
     *display: inline;
     /*IE7 life-saver */
-    
+
     ;
 }
 .owl-carousel .owl-controls {
@@ -798,7 +798,7 @@ ul.work li:hover {
     background: #ffab00;
     filter: Alpha(Opacity=100);
     /*IE7 fix*/
-    
+
     opacity: 1;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
