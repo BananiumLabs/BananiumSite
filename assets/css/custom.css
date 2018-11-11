@@ -12,8 +12,8 @@
 #header {
     height: 10vh;
     background-color: black;
-    opacity: 0;
-    animation: 2s ease-in-out 2s 1 nav-fadein forwards;
+    /* opacity: 0;
+    animation: 2s ease-in-out 2s 1 nav-fadein forwards; */
 }
 
 /* ======================================================
@@ -96,7 +96,7 @@
     position: relative;
     text-align: center;
     background-color: black;
-    z-index: 0;
+    z-index: 200;
     height: 90vh;
 }
 
@@ -195,16 +195,14 @@
 
 .icon-left {
     display: inline-block;
-    width: 49%;
     text-align: left;
-    padding-left: 0.5vw;
+    padding-left: 5vw;
 }
 
 .icon-right {
     display: inline-block;
-    width: 49%;
     text-align: right;
-    padding-right: 0.5vw;
+    padding-right: 5vw;
 }
 
 #banner-icon {
@@ -227,6 +225,8 @@
     -webkit-transition-duration: 0.4s;
     /* Safari */
     transition-duration: 0.4s;
+    font-size: 200%;
+    margin-top: 5vh;
 }
 
 @keyframes banner-icon {
