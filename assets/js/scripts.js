@@ -13,6 +13,7 @@
         $('#about').load('html/about.html', function() {ready()});
         $('#team').load('html/team.html', function() {ready()});
         $('#projects').load('html/projects.html', function() {ready()});
+        $('#footer').load('html/footer.html', function() {ready()});
 
         ready();
 
