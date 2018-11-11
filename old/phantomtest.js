@@ -41,7 +41,7 @@ address = system.args[1];
 try {
     console.info("Test started with length: " + testLen + " milliseconds");
     page.open(address, function(status) {
-
+        
         setTimeout(function() {
             console.log("Test ended.");
             if(!success) {
@@ -53,7 +53,7 @@ try {
                 phantom.exit(0);
             }
         },testLen);
-    });
+    }); 
 } catch (err) {
     console.log("Exception caught: " + err);
 }
