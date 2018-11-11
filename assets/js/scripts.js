@@ -12,14 +12,18 @@
         $('#banner').load('html/banner.html', function() {ready()});
         $('#about-fill').load('html/about.html', function() {ready();counter();});
         $('#team-fill').load('html/team.html', function() {ready()});
-        $('#projects-fill').load('html/projects.html', function() {ready()});
+        $('#projects-fill').load('html/projects.html', function() {ready();work();});
         $('#services-fill').load('html/services.html', function() {ready()});
         $('#blog-fill').load('html/blog.html', function() {ready()});
         $('#contact-fill').load('html/contact.html', function() {ready()});
         $('#footer').load('html/footer.html', function() {ready()});
 
         ready();
-        waypoints();
+
+        setTimeout(function() {
+            waypoints();
+        }, 2000);
+        // waypoints();
 
     });
 
@@ -32,6 +36,26 @@ function counter() {
         delay: 10
     });
     /*COUNTER UP JS*/
+}
+
+function work() {
+    /*START MAGNIFICENT POPUP JS*/
+    $('.work-popup').magnificPopup({
+        type: 'image',
+        gallery: {
+            enabled: true
+        }
+    });
+
+    $('.open-popup-link').magnificPopup({
+        type: 'inline',
+        midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+    });
+    /*END MAGNIFICENT POPUP JS*/
+
+    /*START WORK JS*/
+    $('.work-inner').mixItUp();
+    /*END WORK JS*/
 }
 
 function ready() {
@@ -47,19 +71,6 @@ function ready() {
     particlesJS.load('particles-js', 'assets/js/particles.json', function () {
         console.log('callback - particles.js config loaded');
     });
-
-    /*START MAGNIFICENT POPUP JS*/
-    $('.work-popup').magnificPopup({
-        type: 'image',
-        gallery: {
-            enabled: true
-        }
-    });
-    /*END MAGNIFICENT POPUP JS*/
-
-    /*START WORK JS*/
-    $('.work-inner').mixItUp();
-    /*END WORK JS*/
 
     /*START MENU HIDE*/
     $(document).on('click', '.navbar-collapse.in', function (e) {
@@ -150,7 +161,7 @@ function waypoints() {
         offset: $(window).height() * 0.08
     })
     var services = new Waypoint({
-        element: document.getElementById('services'),
+        element: document.getElementById('services-fill'),
         handler: function (diretion) { waypointHandler('services-link') },
         offset: $(window).height() * 0.08
     })
@@ -160,7 +171,7 @@ function waypoints() {
         offset: $(window).height() * 0.08
     })
     var projects = new Waypoint({
-        element: document.getElementById('projects'),
+        element: document.getElementById('projects-fill'),
         handler: function (diretion) { waypointHandler('projects-link') },
         offset: $(window).height() * 0.08
     })
@@ -171,7 +182,7 @@ function waypoints() {
     })
 
     var contact = new Waypoint({
-        element: document.getElementById('footer'),
+        element: document.getElementById('contact-fill'),
         handler: function (diretion) { waypointHandler('contact-link') },
         offset: $(window).height() * 0.08
     })
