@@ -16,8 +16,11 @@
 #header {
     height: 10vh;
     background-color: black;
-    /* opacity: 0;
-    animation: 2s ease-in-out 2s 1 nav-fadein forwards; */
+}
+
+#header a {
+    color: #ffab00;
+    animation: 2s ease-in-out 2s 1 nav-fadein forwards;
 }
 
 /* ======================================================
@@ -79,10 +82,10 @@
 
 @keyframes nav-fadein {
     from {
-        opacity: 0;
+        color: #ffab00;
     }
     to {
-        opacity: 1;
+        color: white;
     }
 }
 
@@ -241,4 +244,12 @@
 
 #banner a {
     color: white;
+}
+
+/* ======================================================
+    About Section
+   ======================================================*/
+
+.counter-number {
+    color: black !important;
 }

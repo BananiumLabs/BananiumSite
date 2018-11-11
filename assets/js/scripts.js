@@ -10,7 +10,7 @@
         // Load all submodules
         $('#header').load('html/nav.html', function() {ready()});
         $('#banner').load('html/banner.html', function() {ready()});
-        $('#about-fill').load('html/about.html', function() {ready()});
+        $('#about-fill').load('html/about.html', function() {ready();counter();});
         $('#team-fill').load('html/team.html', function() {ready()});
         $('#projects').load('html/projects.html', function() {ready()});
         $('#footer').load('html/footer.html', function() {ready()});
@@ -21,6 +21,14 @@
 
 })(jQuery);
 
+function counter() {
+    /*COUNTER UP JS*/
+    $(".counter-number").counterUp({
+        time: 1000,
+        delay: 10
+    });
+    /*COUNTER UP JS*/
+}
 
 function ready() {
 
@@ -45,29 +53,6 @@ function ready() {
     });
     /*END MAGNIFICENT POPUP JS*/
 
-    /*START TESTMONIAL JS*/
-    $(".testimonial-list").owlCarousel({
-        items: 1,
-        autoPlay: true,
-        navigation: false,
-        theme: "tp-round-button",
-        itemsDesktop: [1199, 1],
-        itemsDesktopSmall: [980, 1],
-        itemsTablet: [768, 1],
-        itemsTabletSmall: false,
-        itemsMobile: [479, 1],
-        autoHeight: true,
-        pagination: true,
-    });
-    /*END TESTMONIAL JS*/
-
-    /*COUNTER UP JS*/
-    $(".counter-number").counterUp({
-        time: 2000,
-        delay: 10
-    });
-    /*COUNTER UP JS*/
-
     /*START WORK JS*/
     $('.work-inner').mixItUp();
     /*END WORK JS*/
@@ -89,7 +74,7 @@ function ready() {
 
     /*START CHANGE MENU BACKGROUND JS*/
     $(window).on('scroll', function () {
-        if ($(window).scrollTop() > 200) {
+        if ($(window).scrollTop() > window.innerHeight) {
             $('.header-top-area').addClass('menu-bg');
         } else {
             $('.header-top-area').removeClass('menu-bg');
