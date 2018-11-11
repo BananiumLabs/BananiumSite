@@ -10,7 +10,7 @@
         // Load all submodules
         $('#header').load('html/nav.html', function() {ready()});
         $('#banner').load('html/banner.html', function() {ready()});
-        $('#about').load('html/about.html', function() {ready()});
+        $('#about-fill').load('html/about.html', function() {ready()});
         $('#team').load('html/team.html', function() {ready()});
         $('#projects').load('html/projects.html', function() {ready()});
         $('#footer').load('html/footer.html', function() {ready()});
