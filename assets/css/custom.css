@@ -264,6 +264,30 @@
 }
 
 /* ======================================================
+    Services
+    ======================================================*/
+
+.icon-blue {
+    background: #2196f3 none repeat scroll 0 0 !important;
+}
+
+.icon-red {
+    background: #f44336 none repeat scroll 0 0 !important;
+}
+
+.icon-green {
+    background: #4caf50 none repeat scroll 0 0 !important;
+}
+
+.icon-purple {
+    background: #673ab7 none repeat scroll 0 0 !important;
+}
+
+.icon-orange {
+    background: #ff5722 none repeat scroll 0 0 !important;
+}
+
+/* ======================================================
     Work/Projects
     ======================================================*/
 
