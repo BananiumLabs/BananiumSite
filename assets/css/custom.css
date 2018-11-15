@@ -299,3 +299,77 @@
     max-width: 500px;
     margin: 20px auto;
 }
+
+/* ======================================================
+   Team Section
+   ======================================================*/
+
+#dev-card {
+    border-radius: 1vh;
+}
+
+#dev-name {
+    margin: 0;
+    padding: 1vw;
+}
+
+.dev-image {
+    margin: 2vh;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    max-width: 10vw;
+    max-height: 10vw;
+}
+
+.weight {
+    font-weight: 400 !important;
+}
+
+.tag {
+    color: grey;
+    font-weight: 200;
+    font-size: 1.5vh;
+}
+
+.card-action {
+    padding: 1vw !important;
+}
+
+/* ======================================================
+    Cards
+   ======================================================*/
+
+#card-label {
+    padding-top: 2vh;
+}
+
+/* Attaches to the bottom of the card contents */
+
+#card-bottom {
+    padding: 1vh;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.nopad {
+    padding: 0 !important;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#reveal-text {
+    margin-left: 2vh;
+    margin-bottom: 1vh;
+    margin-top: 0;
+}
+
+#card-close {
+    width: 0%;
+}
+
+.card-rounded {
+    border-radius: 10px !important;
+}
