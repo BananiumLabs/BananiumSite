@@ -1,0 +1,375 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    width: 100%;
+    padding: 10px 0;
+    color: #000;
+}
+
+.header-top-area {
+    height: 8vh;
+}
+
+#header {
+    height: 10vh;
+    background-color: black;
+}
+
+#header a {
+    color: white;
+    animation: nav-fadein 3.5s ease-in-out;
+}
+
+.selected {
+    color: #ffab00 !important;
+}
+
+/* ======================================================
+    Loading screen styles and animations
+   ======================================================*/
+
+/* Background */
+
+#loading {
+    position: fixed;
+    /* Sit on top of the page content */
+    /* display: none; Hidden by default */
+    width: 100vw;
+    /* Full height (cover the whole page) */
+    background-color: #ffab00;
+    /* Amber accent-4 http://materializecss.com/color.html */
+    z-index: 2000;
+    animation: 1s ease-out 1.5s 1 loading-bg forwards;
+    display: flex;
+    align-items: center;
+}
+
+#loading-logo {
+    display: block;
+    margin: auto;
+    animation: 1s ease-in-out 0s 1 loading-logo forwards;
+}
+
+@keyframes loading-logo {
+    0% {
+        max-width: 10%
+    }
+    100% {
+        max-width: 70%;
+        transform: rotate(360deg)
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    @keyframes loading-logo {
+        0% {
+            max-width: 1%
+        }
+        100% {
+            max-width: 30%;
+            transform: rotate(360deg)
+        }
+    }
+}
+
+@keyframes loading-bg {
+    from {
+        bottom: 0
+    }
+    to {
+        bottom: 100vh
+    }
+}
+
+@keyframes nav-fadein {
+    from {
+        color: #ffab00;
+    }
+    to {
+        color: white;
+    }
+}
+
+/* ======================================================
+    Banner styles and animations
+   ======================================================*/
+
+#banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: default;
+    min-height: 35em;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    background-color: black;
+    z-index: 200;
+    height: 90vh;
+}
+
+#banner img {
+    align-self: center;
+    transform: translateY(3rem);
+    animation: 2s ease-in-out 1s 1 banner-init, 2s ease-in-out 3.5s 1 banner-height;
+    animation-fill-mode: forwards;
+}
+
+/* Make banner larger on mobile devices */
+
+@keyframes banner-init {
+    from {
+        opacity: 0;
+        max-width: 5%
+    }
+    to {
+        opacity: 1;
+        max-width: 90%
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    @keyframes banner-init {
+        from {
+            opacity: 0;
+            max-width: 5%
+        }
+        to {
+            opacity: 1;
+            max-width: 70%
+        }
+    }
+}
+
+@keyframes banner-height {
+    to {
+        transform: translateY(-5rem)
+    }
+}
+
+/* Sidenav */
+
+.sidenav-overlay {
+    z-index: 900 !important;
+}
+
+/* ======================================================
+    Particle.js
+   ======================================================*/
+
+#particles-js canvas {
+    display: block;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+    -webkit-transition: opacity .8s ease, -webkit-transform 1.4s ease;
+    transition: opacity .8s ease, transform 1.4s ease;
+    /* z-index: -1; */
+}
+
+#particles-js {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -10 !important;
+    top: 0;
+    left: 0;
+}
+
+/* Make div fill 100% of screen height */
+
+.fill {
+    height: 100vh;
+}
+
+.expand {
+    height: 100%;
+}
+
+/* ======================================================
+    Icons
+   ======================================================*/
+
+.larger:before {
+    font-size: 300%;
+}
+
+.icon-center {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.icon-left {
+    display: inline-block;
+    text-align: left;
+    padding-left: 5vw;
+}
+
+.icon-right {
+    display: inline-block;
+    text-align: right;
+    padding-right: 5vw;
+}
+
+#banner-icon {
+    z-index: 100;
+    opacity: 0;
+    animation: 1s ease-in-out 4s 1 banner-icon forwards;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+}
+
+#banner-icon:hover,
+#banner-down:hover {
+    transform: scale(1.5);
+}
+
+/* Button to scroll down */
+
+#banner-down {
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    font-size: 200%;
+    margin-top: 5vh;
+}
+
+@keyframes banner-icon {
+    to {
+        opacity: 1
+    }
+}
+
+#banner a {
+    color: white;
+}
+
+/* ======================================================
+    About Section
+   ======================================================*/
+
+.counter-number {
+    color: black !important;
+}
+
+.grey-background {
+    background-color: rgba(0.7, 0.7, 0.7, 0.5);
+    height: 100%;
+}
+
+/* ======================================================
+    Services
+    ======================================================*/
+
+.icon-blue {
+    background: #2196f3 none repeat scroll 0 0 !important;
+}
+
+.icon-red {
+    background: #f44336 none repeat scroll 0 0 !important;
+}
+
+.icon-green {
+    background: #4caf50 none repeat scroll 0 0 !important;
+}
+
+.icon-purple {
+    background: #673ab7 none repeat scroll 0 0 !important;
+}
+
+.icon-orange {
+    background: #ff5722 none repeat scroll 0 0 !important;
+}
+
+/* ======================================================
+    Work/Projects
+    ======================================================*/
+
+.white-popup {
+    position: relative;
+    background: transparent;
+    padding: 0px;
+    width: auto;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+/* ======================================================
+   Team Section
+   ======================================================*/
+
+#dev-card {
+    border-radius: 1vh;
+}
+
+#dev-name {
+    margin: 0;
+    padding: 1vw;
+}
+
+.dev-image {
+    margin: 2vh;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    max-width: 10vw;
+    max-height: 10vw;
+}
+
+.weight {
+    font-weight: 400 !important;
+}
+
+.tag {
+    color: grey;
+    font-weight: 200;
+    font-size: 1.5vh;
+}
+
+.card-action {
+    padding: 1vw !important;
+}
+
+/* ======================================================
+    Cards
+   ======================================================*/
+
+#card-label {
+    padding-top: 2vh;
+}
+
+/* Attaches to the bottom of the card contents */
+
+#card-bottom {
+    padding: 1vh;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.nopad {
+    padding: 0 !important;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#reveal-text {
+    margin-left: 2vh;
+    margin-bottom: 1vh;
+    margin-top: 0;
+}
+
+#card-close {
+    width: 0%;
+}
+
+.card-rounded {
+    border-radius: 10px !important;
+}
