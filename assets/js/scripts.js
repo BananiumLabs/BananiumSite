@@ -60,6 +60,11 @@ function work() {
 
 function ready() {
 
+    // Load lazy loading script
+    var lazy = new LazyLoad({
+        elements_selector: '.lazy'
+    })
+
     /*START PRELOADED*/
     $(window).on('load', function () {
         $('.preloader').fadeOut();
