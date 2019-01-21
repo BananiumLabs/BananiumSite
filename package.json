@@ -4,23 +4,22 @@
   "description": "BananiumLabs Website",
   "main": "webpack.config.js",
   "dependencies": {
-    "npm": "^6.4.1",
+    "npm": "^6.6.0",
     "particles.js": "^2.0.0"
   },
   "devDependencies": {
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9",
-    "webpack-node-externals": "^1.7.2"
+    "http-server": "^0.11.1",
+    "npm-check": "^5.9.0"
   },
   "scripts": {
     "test": "phantomjs phantomtest.js index.html",
-    "start:hot": "webpack-dev-server --hot",
-    "start": "webpack-dev-server --open --progress --colors --profile --watch",
+    "start:hot": "echo not implemented",
+    "start": "http-server -o",
     "watch": "webpack-dev-server --watch",
-    "build": "npm run clean:dist && webpack-dev-server --progress --colors --profile",
+    "build": "npm run clean:dist && echo not implemented",
     "clean:dist": "npm run rimraf -- dist",
-    "rimraf": "rimraf"
+    "rimraf": "rimraf",
+    "update": "node node_modules/npm-check/bin/cli.js -u"
   },
   "repository": {
     "type": "git",
