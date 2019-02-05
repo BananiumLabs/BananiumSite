@@ -65,12 +65,7 @@ function ready() {
         elements_selector: '.lazy'
     })
 
-    /*START PRELOADED*/
-    $(window).on('load', function () {
-        $('.preloader').fadeOut();
-        $('.preloader-area').delay(350).fadeOut('slow');
-    });
-    /*END PRELOADED*/
+
 
     /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
     particlesJS.load('particles-js', 'assets/js/particles.json', function () {
@@ -149,6 +144,16 @@ function ready() {
         return false;
     });
         /*END SCROLL TO UP*/
+
+    /*START PRELOADED*/
+    $(window).on('load', function () {
+        // $('#loading').removeClass("assetloading");
+        $('#loading').css('animation', '1s ease-out 1.5s 1 loading-bg forwards');
+        $('#loading-logo').css('animation', '1s ease-in-out 0s 1 loading-logo forwards');
+        $('.preloader').fadeOut();
+        $('.preloader-area').delay(350).fadeOut('slow');
+    });
+    /*END PRELOADED*/
 }
 
 

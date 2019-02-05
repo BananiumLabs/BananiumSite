@@ -42,7 +42,7 @@
     background-color: #ffab00;
     /* Amber accent-4 http://materializecss.com/color.html */
     z-index: 2000;
-    animation: 1s ease-out 1.5s 1 loading-bg forwards;
+    /* animation: 1s ease-out 1.5s 1 loading-bg forwards; */
     display: flex;
     align-items: center;
 }
@@ -50,7 +50,28 @@
 #loading-logo {
     display: block;
     margin: auto;
-    animation: 1s ease-in-out 0s 1 loading-logo forwards;
+    animation: spin 3s linear infinite;
+    max-width: 10%;
+    /* animation: 1s ease-in-out 0s 1 loading-logo forwards; */
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes loading-logo {
