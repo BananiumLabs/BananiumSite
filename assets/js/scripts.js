@@ -10,7 +10,7 @@
         // Load all submodules
         $('#header').load('html/nav.html', function() {ready()});
         $('#banner').load('html/banner.html', function() {ready()});
-        $('#about-fill').load('html/about.html', function() {ready();counter();});
+        $('#about-fill').load('html/about.html', function() {ready();counter();typeWriter();});
         $('#team-fill').load('html/team.html', function() {ready()});
         $('#projects-fill').load('html/projects.html', function() {ready();work();});
         $('#services-fill').load('html/services.html', function() {ready()});
@@ -28,6 +28,7 @@
     });
 
 })(jQuery);
+
 
 function counter() {
     /*COUNTER UP JS*/
@@ -156,6 +157,13 @@ function ready() {
     /*END PRELOADED*/
 }
 
+function writeText() {
+    if (i < txt.length) {
+        document.getElementById("aboutTextWord").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(writeText, 50);
+    }
+}
 
 function waypoints() {
     // Setup waypoints
@@ -214,4 +222,62 @@ function waypointHandler(elementId) {
  */
 function clearSelections() {
     $('.selected').removeClass('selected');
+}
+
+let captionLength = 0;
+let caption = '';
+let typeDelay = 50;
+
+let captions = ['Innovation', 'Creativity', 'Engineering', "Passion"];
+let captionIndex = 0;
+
+function typeWriter() {
+
+    setInterval('cursorAnimation()', 600);
+    captionEl = $('#caption');
+    newType();
+
+}
+
+function newType() {
+    caption = captions[captionIndex];
+    type();
+}
+
+function incrementCaption() {
+    captionIndex++;
+    if (captionIndex === captions.length) {
+        captionIndex = 0;
+    }
+    caption = captions[captionIndex];
+    setTimeout('erase()', 2000);
+}
+function type() {
+    captionEl.html(caption.substr(0, captionLength++));
+    if (captionLength < caption.length + 1) {
+        setTimeout('type()', typeDelay);
+    } else {
+        // captionLength = 0;
+        // caption = '';
+        incrementCaption();
+    }
+}
+
+function erase() {
+    captionEl.html(captionEl[0].innerText.substr(0, captionLength--));
+    // console.log(captionEl.innerText);
+    if (captionEl[0].innerText.length > 0) {
+        setTimeout('erase()', typeDelay);
+    } else {
+        captionLength = 0;
+        setTimeout('type()', 2000);
+    }
+}
+
+function cursorAnimation() {
+    $('#cursor').animate({
+        opacity: 0
+    }, 'fast', 'swing').animate({
+        opacity: 1
+    }, 'fast', 'swing');
 }
