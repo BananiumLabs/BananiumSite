@@ -228,7 +228,7 @@ let captionLength = 0;
 let caption = '';
 let typeDelay = 50;
 
-let captions = ['Innovation', 'Creativity', 'Engineering', "Passion"];
+let captions = ['Innovation', 'Creativity', 'Dedication', 'Collaboration', 'Engineering', "Competitions", "Passion"];
 let captionIndex = 0;
 
 function typeWriter() {
@@ -256,9 +256,15 @@ function type() {
     captionEl.html(caption.substr(0, captionLength++));
     if (captionLength < caption.length + 1) {
         setTimeout('type()', typeDelay);
-    } else {
+        console.log(captionIndex);
+        console.log(captions.length);
+    } else if (captionIndex === captions.length - 1){
+
         // captionLength = 0;
         // caption = '';
+        setTimeout('incrementCaption()', 10000);
+    }
+    else {
         incrementCaption();
     }
 }
