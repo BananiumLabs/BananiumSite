@@ -4,14 +4,16 @@
   "description": "BananiumLabs Website",
   "main": "webpack.config.js",
   "dependencies": {
-    "npm": "^6.6.0",
+    "npm": "^6.10.0",
     "particles.js": "^2.0.0"
   },
   "devDependencies": {
     "http-server": "^0.11.1",
+    "ecstatic": "3.3.1",
     "npm-check": "^5.9.0"
   },
   "scripts": {
+    "note": "echo ecstatic 3.3.1 due to http-server ^0.11.1 dependency.",
     "test": "phantomjs phantomtest.js index.html",
     "start:hot": "echo not implemented",
     "start": "http-server -o",
