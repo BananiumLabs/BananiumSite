@@ -7,12 +7,6 @@
 
     jQuery(document).ready(function() {
         ready();
-
-        setTimeout(function() {
-            waypoints();
-        }, 2000);
-        // waypoints();
-
     });
 
 })(jQuery);
@@ -153,58 +147,6 @@ function writeText() {
         i++;
         setTimeout(writeText, 50);
     }
-}
-
-function waypoints() {
-    // Setup waypoints
-    var home = new Waypoint({
-        element: document.getElementById('banner'),
-        handler: function (diretion) { waypointHandler('home-link') },
-        offset: $(window).height() * 0.08
-    })
-
-    var about = new Waypoint({
-        element: document.getElementById('about-fill'),
-        handler: function (diretion) { waypointHandler('about-link') },
-        offset: $(window).height() * 0.08
-    })
-    var services = new Waypoint({
-        element: document.getElementById('services-fill'),
-        handler: function (diretion) { waypointHandler('services-link') },
-        offset: $(window).height() * 0.08
-    })
-    var team = new Waypoint({
-        element: document.getElementById('team-fill'),
-        handler: function (diretion) { waypointHandler('team-link') },
-        offset: $(window).height() * 0.08
-    })
-    var projects = new Waypoint({
-        element: document.getElementById('projects-fill'),
-        handler: function (diretion) { waypointHandler('projects-link') },
-        offset: $(window).height() * 0.08
-    })
-    var blog = new Waypoint({
-        element: document.getElementById('blog-fill'),
-        handler: function (diretion) { waypointHandler('blog-link') },
-        offset: $(window).height() * 0.08
-    })
-
-    var contact = new Waypoint({
-        element: document.getElementById('contact-fill'),
-        handler: function (diretion) { waypointHandler('contact-link') },
-        offset: $(window).height() * 0.08
-    })
-}
-
-/**
- * Runs as the handler for the Waypoint system to highlight a header link when on the correct section.
- * @param {string} elementId The ID of the element to highlight. Do not include the prefix #
- */
-function waypointHandler(elementId) {
-    clearSelections();
-    console.log(elementId);
-    $('#' + elementId).addClass('selected');
-    return this;
 }
 
 /**
