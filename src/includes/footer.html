@@ -12,8 +12,13 @@
                     <li>
                         <div class="row">
                             <!-- <a style="margin-top: 2vh" class="waves-effect waves-light btn red" href="javascript:alert('Thank you! But this feature is not yet implemented. Please use one of the contact method for now!')">Donate</a> -->
-                            <a style="margin-top: 2vh" class="waves-effect waves-light btn red" href="mailto:contact@bananiumlabs.com">Donate</a>
-                            <div id="donateComponent" style="display: inline-block"></div>
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="margin-top: 2vh">
+<input type="hidden" name="cmd" value="_s-xclick" />
+<input type="hidden" name="hosted_button_id" value="4UGY4XL6ETZN8" />
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
+</form>
+
                         </div>
                         <div id="donateMessage"></div>
                     </li>
