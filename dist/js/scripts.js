@@ -6,18 +6,6 @@
     'use strict';
 
     jQuery(document).ready(function() {
-
-        // Load all submodules
-        $('#header').load('html/nav.html', function() {ready()});
-        $('#banner').load('html/banner.html', function() {ready()});
-        $('#about-fill').load('html/about.html', function() {ready();counter();typeWriter();});
-        $('#team-fill').load('html/team.html', function() {ready()});
-        $('#projects-fill').load('html/projects.html', function() {ready();work();});
-        $('#services-fill').load('html/services.html', function() {ready()});
-        $('#blog-fill').load('html/blog.html', function() {ready()});
-        $('#contact-fill').load('html/contact.html', function() {ready()});
-        $('#footer').load('html/footer.html', function() {ready()});
-
         ready();
 
         setTimeout(function() {
@@ -32,10 +20,10 @@
 
 function counter() {
     /*COUNTER UP JS*/
-    $(".counter-number").counterUp({
-        time: 1000,
-        delay: 10
-    });
+    // $(".counter-number").counterUp({
+    //     time: 1000,
+    //     delay: 10
+    // });
     /*COUNTER UP JS*/
 }
 
@@ -69,7 +57,7 @@ function ready() {
 
 
     /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-    particlesJS.load('particles-js', 'assets/js/particles.json', function () {
+    particlesJS.load('particles-js', 'js/particles.json', function () {
         console.log('callback - particles.js config loaded');
     });
 
@@ -155,6 +143,8 @@ function ready() {
         $('.preloader-area').delay(350).fadeOut('slow');
     });
     /*END PRELOADED*/
+
+    work();
 }
 
 function writeText() {
