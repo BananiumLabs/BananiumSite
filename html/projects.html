@@ -124,7 +124,7 @@
                 <!-- START SINGLE WORK ITEM -->
                 <div class="col-md-3 col-sm-4 mix hackathons awards">
                     <div class="single-work">
-                        <img src="assets/img/work/carrotcane.png" class="img-responsive lazy" alt="" />
+                        <img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_thumbnail_photos/000/635/760/datas/medium.jpg" class="img-responsive lazy" alt="" />
                         <a class="open-popup-link" href="#carrotcane-popup">
                             <div class="work-details text-center">
                                 <div class="overlay"></div>
@@ -546,18 +546,33 @@
             <span class="card-title row">
                 <a class="white-text col s6 valign-wrapper">CarrotCane</a>
                 
-                <a href="https://github.com/BananiumLabs/Honeydue" class="fab fa-github white-text col s2 valign-wrapper"></a>
+                <a href="https://devpost.com/software/carrotcane" class="fab fa-github white-text col s2 valign-wrapper"></a>
             </span>
-            <a href="http://firebirdhacks.com/">2017 Firebird Hacks Submission</a>
-            <p class="white-text">Winner - Best .tech Website!</p>
+            <a href="https://devpost.com/software/carrotcane">2018 TinoHacks II Submission</a>
+            <p class="white-text">Winner - 1st Place</p>
             <br>
-            <p class="white-text">Responsive cross-platform app which intelligently generates schedules to help you
-                stay focused
-                on your homework!</p>
+            <p class="white-text">While we were experimenting with the capabilities of the Arduino hardware, we realized
+                 that we could create a product that is both impactful and interesting to develop. One of our previous 
+                 attempts to aid the visually impaired with only software proved ineffective, so we decided to start over
+                  from scratch with more capable hardware and software integrations to create a more enticing product
+                   prototype.
+                   What it does (Feature List)
+                   Automatic detection of nearby objects with audible alarm and feedback when approaching too quickly
+                   Attach a smartphone to provide live GPS tracking and photo/video feed
+                   Online supervisor console- monitor GPS position and manage hardware settings online
+                   How we built it
+                   CarrotCane runs on a Node.js server with Socket.io, with Arduino hardware and a mobile interface 
+                   written in Ionic. We created an averaging algorithm which can effectively determine oncoming 
+                   obstacles or objects moving towards the user. This is accomplished using the HC-SR04 ultrasonic sensor
+                    in addition to LCD 2004 Panel and corresponding buttons. We also utilized two Arduino Uno boards 
+                    which communicate with each other via Inter-Integrated Circuit Serial Bus(I²C), in which one board 
+                    handles communication with the web platform while the other receives sensor inputs and display outputs.
+                     Additionally, Geolocation feature and video related features are created using Ionic framework, and 
+                     it allowed us to acquire accurate GPS coordinates of the user.
+            </p>
             <br>
-            <p class="white-text">Written using Angular2 + Nebular.</p>
             <br>
-            <p class="white-text">Contributors: Ben Cuan, Eric Qian, Viraj Shitole, Omar Hossain</p>
+            <p class="white-text">Contributors: Ben Cuan, Eric Qian</p>
         </div>
     </div>
 </div>
