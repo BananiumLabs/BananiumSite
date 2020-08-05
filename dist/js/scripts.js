@@ -42,14 +42,6 @@ function work() {
 }
 
 function ready() {
-
-    // Load lazy loading script
-    var lazy = new LazyLoad({
-        elements_selector: '.lazy'
-    })
-
-
-
     /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
     particlesJS.load('particles-js', 'js/particles.json', function () {
         console.log('callback - particles.js config loaded');
@@ -89,28 +81,6 @@ function ready() {
         e.preventDefault();
     });
     /*END SMOOTH SCROLL JS*/
-
-    /*START CONTACT MAP JS*/
-    var contact = {
-        "lat": "37.3149512",
-        "lon": "-122.0562906"
-    }; //Change a map coordinate here!
-    try {
-        $('.map').gmap3({
-            action: 'addMarker',
-            latLng: [contact.lat, contact.lon],
-            map: {
-                center: [contact.lat, contact.lon],
-                zoom: 10
-            },
-        }, {
-                action: 'setOptions',
-                args: [{
-                    scrollwheel: false
-                }]
-            });
-    } catch (err) { }
-    /*END CONTACT MAP JS*/
 
     /*START SCROLL TO UP*/
     $(window).on('scroll', function () {

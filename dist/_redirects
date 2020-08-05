@@ -1,4 +1,5 @@
 /projects-only /#projects-fill
+/projects-only.html /#projects-fill
 https://bananiumlabs.com/* https://bananium.com/:splat 301!
 https://www.bananiumlabs.com/* https://bananium.com/:splat 301!
 /projects /#projects-fill
