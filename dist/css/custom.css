@@ -375,6 +375,21 @@
     padding: 1vw !important;
 }
 
+.single-team {
+    min-height: 500px;
+}
+
+.team-social {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    left: 0;
+}
+
+ul.team-social i {
+    font-size: 22px;
+}
+
 /* ======================================================
     Cards
    ======================================================*/
@@ -411,6 +426,11 @@
 
 .card-rounded {
     border-radius: 10px !important;
+}
+
+.chip {
+    font-size: 10px;
+    padding: 0px 10px;
 }
 
 
