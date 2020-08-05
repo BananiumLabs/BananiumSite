@@ -1,0 +1,127 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    width: 100%;
+    padding: 10px 0;
+    color: #000;
+}
+
+.header-top-area {
+    height: 69px;
+}
+
+.navbar-toggle:focus {
+    background-color: #ffab00;
+}
+
+#header {
+    height: 10vh;
+    background-color: black;
+}
+
+#header a {
+    color: white;
+    animation: nav-fadein 3.5s ease-in-out;
+}
+
+.selected {
+    color: #ffab00 !important;
+}
+
+.section-title span {
+    background: #ffab00 none repeat scroll 0 0;
+}
+
+/* ======================================================
+    Loading screen styles and animations
+   ======================================================*/
+
+/* Background */
+
+#loading {
+    position: fixed;
+    /* Sit on top of the page content */
+    /* display: none; Hidden by default */
+    width: 100vw;
+    /* Full height (cover the whole page) */
+    background-color: #ffab00;
+    /* Amber accent-4 http://materializecss.com/color.html */
+    z-index: 2000;
+    /* animation: 1s ease-out 1.5s 1 loading-bg forwards; */
+    display: flex;
+    align-items: center;
+}
+
+#loading-logo {
+    display: block;
+    margin: auto;
+    animation: spin 3s linear infinite;
+    max-width: 10%;
+    /* animation: 1s ease-in-out 0s 1 loading-logo forwards; */
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loading-logo {
+    0% {
+        max-width: 10%
+    }
+
+    100% {
+        max-width: 70%;
+        transform: rotate(360deg)
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    @keyframes loading-logo {
+        0% {
+            max-width: 1%
+        }
+
+        100% {
+            max-width: 30%;
+            transform: rotate(360deg)
+        }
+    }
+}
+
+@keyframes loading-bg {
+    from {
+        bottom: 0
+    }
+
+    to {
+        bottom: 100vh
+    }
+}
+
+@keyframes nav-fadein {
+    from {
+        color: #ffab00;
+    }
+
+    to {
+        color: white;
+    }
+}

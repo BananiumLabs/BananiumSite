@@ -1,0 +1,53 @@
+<!-- START TEAM AREA -->
+<section id="team" class="our-team-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="section-title text-center">
+                    <h2>Our Team</h2>
+                    <span></span>
+                    <!-- <p>100%
+                        <br>placeholder.</p> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="team-table">
+            {% for person in team %}
+                <div class="col-md-3 col-sm-6">
+                <div class="single-team text-center">
+                    <img src="{{person.img}}" alt="{{person.name}} image" class="img-responsive img-rounded lazy" loading="lazy"
+                        id="dev-image" />
+                    <h4 class="team-member">{{person.name}}</h4>
+                    <p>@{{person.tag}}</p>
+                     <div class="card-content nopad">
+                         {% for tag in person.tags %}
+                            <div class="chip {{tag.color}} white-text">{{tag.id}}</div>
+                         {% endfor %}
+                        <div class="chip blue darken-2 white-text">Hackathon Team [{{person.hackathons}}]</div>
+                    </div>
+                    <ul class="team-social">
+                        {% if person.github %}
+                            <li><a href="https://github.com/{{person.github}}"><i class="fab fa-github"></i></a></li>
+                        {% endif %}
+
+                        {% if person.linkedin %}
+                            <li><a href="https://www.linkedin.com/in/{{person.linkedin}}"><i class="fab fa-linkedin"></i></a></li>
+                        {% endif %}
+
+                        {% if person.email %}
+                            <li><a href="mailto:{{person.email}}"><i class="fas fa-envelope"></i></a></li>
+                        {% endif %}
+
+                        {% if person.website %}
+                            <li><a href="{{person.website}}"><i class="fa fa-globe"></i></a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+<!-- END TEAM AREA -->

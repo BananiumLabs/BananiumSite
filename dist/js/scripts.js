@@ -6,25 +6,7 @@
     'use strict';
 
     jQuery(document).ready(function() {
-
-        // Load all submodules
-        $('#header').load('html/nav.html', function() {ready()});
-        $('#banner').load('html/banner.html', function() {ready()});
-        $('#about-fill').load('html/about.html', function() {ready();counter();typeWriter();});
-        $('#team-fill').load('html/team.html', function() {ready()});
-        $('#projects-fill').load('html/projects.html', function() {ready();work();});
-        $('#services-fill').load('html/services.html', function() {ready()});
-        $('#blog-fill').load('html/blog.html', function() {ready()});
-        $('#contact-fill').load('html/contact.html', function() {ready()});
-        $('#footer').load('html/footer.html', function() {ready()});
-
         ready();
-
-        setTimeout(function() {
-            waypoints();
-        }, 2000);
-        // waypoints();
-
     });
 
 })(jQuery);
@@ -32,10 +14,10 @@
 
 function counter() {
     /*COUNTER UP JS*/
-    $(".counter-number").counterUp({
-        time: 1000,
-        delay: 10
-    });
+    // $(".counter-number").counterUp({
+    //     time: 1000,
+    //     delay: 10
+    // });
     /*COUNTER UP JS*/
 }
 
@@ -60,16 +42,8 @@ function work() {
 }
 
 function ready() {
-
-    // Load lazy loading script
-    var lazy = new LazyLoad({
-        elements_selector: '.lazy'
-    })
-
-
-
     /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-    particlesJS.load('particles-js', 'assets/js/particles.json', function () {
+    particlesJS.load('particles-js', 'js/particles.json', function () {
         console.log('callback - particles.js config loaded');
     });
 
@@ -108,28 +82,6 @@ function ready() {
     });
     /*END SMOOTH SCROLL JS*/
 
-    /*START CONTACT MAP JS*/
-    var contact = {
-        "lat": "37.3149512",
-        "lon": "-122.0562906"
-    }; //Change a map coordinate here!
-    try {
-        $('.map').gmap3({
-            action: 'addMarker',
-            latLng: [contact.lat, contact.lon],
-            map: {
-                center: [contact.lat, contact.lon],
-                zoom: 10
-            },
-        }, {
-                action: 'setOptions',
-                args: [{
-                    scrollwheel: false
-                }]
-            });
-    } catch (err) { }
-    /*END CONTACT MAP JS*/
-
     /*START SCROLL TO UP*/
     $(window).on('scroll', function () {
         if ($(this).scrollTop() > 500) {
@@ -155,6 +107,8 @@ function ready() {
         $('.preloader-area').delay(350).fadeOut('slow');
     });
     /*END PRELOADED*/
+
+    work();
 }
 
 function writeText() {
@@ -163,58 +117,6 @@ function writeText() {
         i++;
         setTimeout(writeText, 50);
     }
-}
-
-function waypoints() {
-    // Setup waypoints
-    var home = new Waypoint({
-        element: document.getElementById('banner'),
-        handler: function (diretion) { waypointHandler('home-link') },
-        offset: $(window).height() * 0.08
-    })
-
-    var about = new Waypoint({
-        element: document.getElementById('about-fill'),
-        handler: function (diretion) { waypointHandler('about-link') },
-        offset: $(window).height() * 0.08
-    })
-    var services = new Waypoint({
-        element: document.getElementById('services-fill'),
-        handler: function (diretion) { waypointHandler('services-link') },
-        offset: $(window).height() * 0.08
-    })
-    var team = new Waypoint({
-        element: document.getElementById('team-fill'),
-        handler: function (diretion) { waypointHandler('team-link') },
-        offset: $(window).height() * 0.08
-    })
-    var projects = new Waypoint({
-        element: document.getElementById('projects-fill'),
-        handler: function (diretion) { waypointHandler('projects-link') },
-        offset: $(window).height() * 0.08
-    })
-    var blog = new Waypoint({
-        element: document.getElementById('blog-fill'),
-        handler: function (diretion) { waypointHandler('blog-link') },
-        offset: $(window).height() * 0.08
-    })
-
-    var contact = new Waypoint({
-        element: document.getElementById('contact-fill'),
-        handler: function (diretion) { waypointHandler('contact-link') },
-        offset: $(window).height() * 0.08
-    })
-}
-
-/**
- * Runs as the handler for the Waypoint system to highlight a header link when on the correct section.
- * @param {string} elementId The ID of the element to highlight. Do not include the prefix #
- */
-function waypointHandler(elementId) {
-    clearSelections();
-    console.log(elementId);
-    $('#' + elementId).addClass('selected');
-    return this;
 }
 
 /**

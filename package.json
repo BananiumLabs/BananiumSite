@@ -8,20 +8,16 @@
     "particles.js": "^2.0.0"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
     "http-server": "^0.11.1",
     "ecstatic": "3.3.2",
     "npm-check": "^5.9.0"
   },
   "scripts": {
     "note": "echo ecstatic 3.3.1 due to http-server ^0.11.1 dependency.",
-    "test": "phantomjs phantomtest.js index.html",
+    "test": "echo not implemented",
     "start:hot": "echo not implemented",
-    "start": "http-server -o",
-    "watch": "webpack-dev-server --watch",
-    "build": "npm run clean:dist && echo not implemented",
-    "clean:dist": "npm run rimraf -- dist",
-    "rimraf": "rimraf",
-    "update": "node node_modules/npm-check/bin/cli.js -u"
+    "start": "eleventy --serve"
   },
   "repository": {
     "type": "git",
