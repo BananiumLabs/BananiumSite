@@ -251,7 +251,7 @@
     padding-right: 5vw;
 }
 
-#banner-icon {
+.banner-icon {
     z-index: 100;
     opacity: 0;
     animation: 1s ease-in-out 4s 1 banner-icon forwards;
@@ -260,7 +260,7 @@
     transition-duration: 0.4s;
 }
 
-#banner-icon:hover,
+.banner-icon:hover,
 #banner-down:hover {
     transform: scale(1.5);
 }
