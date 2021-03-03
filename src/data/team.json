@@ -1,206 +1,206 @@
 [
-  {
-    "name": "Eric Qian",
-    "tag": "EnumC",
-    "img": "https://avatars1.githubusercontent.com/u/5799869",
-    "tags": [
-      {
-        "id": "Backend",
-        "color": "black"
-      },
-      {
-        "id": "Hardware",
-        "color": "amber darken-1"
-      },
-      {
-        "id": "Management",
-        "color": "purple lighten-1"
-      }
-    ],
-    "hackathons": 10,
-    "github": "EnumC",
-    "linkedin": "enumc",
-    "email": "contact@enumc.com",
-    "website": "https://enumc.com"
-  },
-  {
-    "name": "Ben Cuan",
-    "tag": "64bitpandas",
-    "img": "https://avatars2.githubusercontent.com/u/15005763",
-    "tags": [
-      {
-        "id": "Full Stack",
-        "color": "red"
-      },
-      {
-        "id": "Frontend",
-        "color": "green"
-      },
-      {
-        "id": "Management",
-        "color": "purple lighten-1"
-      }
-    ],
-    "hackathons": 10,
-    "github": "64bitpandas",
-    "linkedin": "bencuan",
-    "email": "contact@bencuan.me",
-    "website": "https://bencuan.me"
-  },
-  {
-    "name": "Vikram Peddinti",
-    "tag": "DarkFlameX1",
-    "img": "https://avatars3.githubusercontent.com/u/8906527",
-    "tags": [
-      {
-        "id": "Frontend",
-        "color": "green"
-      },
-      {
-        "id": "Management",
-        "color": "purple lighten-1"
-      }
-    ],
-    "hackathons": 10,
-    "github": "DarkFlamex1",
-    "linkedin": "vpeddinti",
-    "email": "vikram.peddinti@gmail.com"
-  },
-  {
-    "name": "Alexey Kolechkin",
-    "tag": "Kuxxe",
-    "img": "https://avatars2.githubusercontent.com/u/22230771",
-    "tags": [
-      {
-        "id": "Management",
-        "color": "purple lighten-1"
-      },
-      {
-        "id": "PR/Marketing",
-        "color": "orange accent-4"
-      }
-    ],
-    "hackathons": 8,
-    "github": "Kuxxe",
-    "linkedin": "alexey-kolechkin-85841b158",
-    "email": "alexey.kolechkin@gmail.com"
-  },
-  {
-    "name": "Omar Hossain",
-    "tag": "Epicrider",
-    "img": "https://avatars1.githubusercontent.com/u/15772933",
-    "tags": [
-      {
-        "id": "Design",
-        "color": "pink"
-      }
-    ],
-    "hackathons": 6,
-    "github": "Epicrider",
-    "linkedin": "omar-hossain-a2705a16a",
-    "email": "omar.hosain@gmail.com"
-  },
-  {
-    "name": "Akash Basu",
-    "tag": "FujaX",
-    "img": "https://avatars3.githubusercontent.com/u/33015666",
-    "tags": [
-      {
-        "id": "Frontend",
-        "color": "green"
-      }
-    ],
-    "hackathons": 7,
-    "github": "FujaX",
-    "linkedin": "akash-basu-a2949a165",
-    "email": "abasu924@gmail.com"
-  },
-  {
-    "name": "Adarsh Iyer",
-    "tag": "voltlock",
-    "img": "https://avatars1.githubusercontent.com/u/11846492",
-    "tags": [
-      {
-        "id": "Backend Developer",
-        "color": "black"
-      }
-    ],
-    "hackathons": 2,
-    "github": "AdarshI",
-    "email": "adarsh.iyer17@gmail.com"
-  },
-  {
-    "name": "William Cai",
-    "tag": "Ozymandias",
-    "img": "https://avatars1.githubusercontent.com/u/31721348",
-    "tags": [
-      {
-        "id": "Mobile",
-        "color": "brown"
-      },
-      {
-        "id": "Frontend",
-        "color": "green"
-      }
-    ],
-    "hackathons": 1,
-    "github": "ozymandias6118",
-    "linkedin": "william-cai-b271b6162",
-    "email": "williamcai8@gmail.com"
-  },
-  {
-    "name": "Kevin Chu",
-    "tag": "XKindredKinesis",
-    "img": "https://avatars1.githubusercontent.com/u/25915444",
-    "tags": [
-      {
-        "id": "Graphic Design",
-        "color": "pink darken-2"
-      }
-    ],
-    "hackathons": 1,
-    "github": "KindredKinesis",
-    "email": "kmhchu2001@gmail.com"
-  },
-  {
-    "name": "Viraj Shitole",
-    "tag": "vrjmath",
-    "img": "https://avatars3.githubusercontent.com/u/29766196",
-    "tags": [
-      {
-        "id": "Mobile",
-        "color": "brown"
-      }
-    ],
-    "hackathons": 4,
-    "github": "vrjmath"
-  },
-  {
-    "name": "Alex Waitz",
-    "tag": "AlexWaitz",
-    "img": "https://avatars3.githubusercontent.com/u/26175850",
-    "tags": [
-      {
-        "id": "Full Stack",
-        "color": "red"
-      }
-    ],
-    "hackathons": 2,
-    "github": "AlexWaitz",
-    "email": "alexanderjwaitz@gmail.com",
-    "website": "https://alexwaitz.github.io/"
-  },
-  {
-    "name": "Tai Nguyen",
-    "tag": "Tainerd007",
-    "img": "https://avatars0.githubusercontent.com/u/37753526",
-    "tags": [
-      {
-        "id": "Full Stack",
-        "color": "red"
-      }
-    ],
-    "hackathons": 1,
-    "github": "Tainerd007"
-  }
+    {
+        "name": "Eric Qian",
+        "tag": "EnumC",
+        "img": "https://avatars1.githubusercontent.com/u/5799869",
+        "tags": [
+            {
+                "id": "Backend",
+                "color": "black"
+            },
+            {
+                "id": "Hardware",
+                "color": "amber darken-1"
+            },
+            {
+                "id": "Management",
+                "color": "purple lighten-1"
+            }
+        ],
+        "hackathons": 10,
+        "github": "EnumC",
+        "linkedin": "enumc",
+        "email": "contact@enumc.com",
+        "website": "https://enumc.com"
+    },
+    {
+        "name": "Ben Cuan",
+        "tag": "64bitpandas",
+        "img": "https://avatars2.githubusercontent.com/u/15005763",
+        "tags": [
+            {
+                "id": "Full Stack",
+                "color": "red"
+            },
+            {
+                "id": "Frontend",
+                "color": "green"
+            },
+            {
+                "id": "Management",
+                "color": "purple lighten-1"
+            }
+        ],
+        "hackathons": 10,
+        "github": "64bitpandas",
+        "linkedin": "bencuan",
+        "email": "contact@bencuan.me",
+        "website": "https://bencuan.me"
+    },
+    {
+        "name": "Vikram Peddinti",
+        "tag": "DarkFlameX1",
+        "img": "https://avatars3.githubusercontent.com/u/8906527",
+        "tags": [
+            {
+                "id": "Frontend",
+                "color": "green"
+            },
+            {
+                "id": "Management",
+                "color": "purple lighten-1"
+            }
+        ],
+        "hackathons": 10,
+        "github": "DarkFlamex1",
+        "linkedin": "vpeddinti",
+        "email": "vikram.peddinti@gmail.com"
+    },
+    {
+        "name": "Alexey Kolechkin",
+        "tag": "Kuxxe",
+        "img": "https://avatars2.githubusercontent.com/u/22230771",
+        "tags": [
+            {
+                "id": "Management",
+                "color": "purple lighten-1"
+            },
+            {
+                "id": "PR/Marketing",
+                "color": "orange accent-4"
+            }
+        ],
+        "hackathons": 8,
+        "github": "Kuxxe",
+        "linkedin": "alexey-kolechkin-85841b158",
+        "email": "alexey.kolechkin@gmail.com"
+    },
+    {
+        "name": "Omar Hossain",
+        "tag": "Epicrider",
+        "img": "https://avatars1.githubusercontent.com/u/15772933",
+        "tags": [
+            {
+                "id": "Design",
+                "color": "pink"
+            }
+        ],
+        "hackathons": 6,
+        "github": "Epicrider",
+        "linkedin": "omar-hossain-a2705a16a",
+        "email": "omar.hosain@gmail.com"
+    },
+    {
+        "name": "Akash Basu",
+        "tag": "FujaX",
+        "img": "https://avatars3.githubusercontent.com/u/33015666",
+        "tags": [
+            {
+                "id": "Frontend",
+                "color": "green"
+            }
+        ],
+        "hackathons": 7,
+        "github": "FujaX",
+        "linkedin": "akash-basu-a2949a165",
+        "email": "abasu924@gmail.com"
+    },
+    {
+        "name": "Adarsh Iyer",
+        "tag": "voltlock",
+        "img": "https://avatars1.githubusercontent.com/u/11846492",
+        "tags": [
+            {
+                "id": "Backend Developer",
+                "color": "black"
+            }
+        ],
+        "hackathons": 2,
+        "github": "AdarshI",
+        "email": "adarsh.iyer17@gmail.com"
+    },
+    {
+        "name": "William Cai",
+        "tag": "Ozymandias",
+        "img": "https://avatars1.githubusercontent.com/u/31721348",
+        "tags": [
+            {
+                "id": "Mobile",
+                "color": "brown"
+            },
+            {
+                "id": "Frontend",
+                "color": "green"
+            }
+        ],
+        "hackathons": 1,
+        "github": "ozymandias6118",
+        "linkedin": "william-cai-b271b6162",
+        "email": "williamcai8@gmail.com"
+    },
+    {
+        "name": "Kevin Chu",
+        "tag": "XKindredKinesis",
+        "img": "https://avatars1.githubusercontent.com/u/25915444",
+        "tags": [
+            {
+                "id": "Graphic Design",
+                "color": "pink darken-2"
+            }
+        ],
+        "hackathons": 1,
+        "github": "KindredKinesis",
+        "email": "kmhchu2001@gmail.com"
+    },
+    {
+        "name": "Viraj Shitole",
+        "tag": "vrjmath",
+        "img": "https://avatars3.githubusercontent.com/u/29766196",
+        "tags": [
+            {
+                "id": "Mobile",
+                "color": "brown"
+            }
+        ],
+        "hackathons": 4,
+        "github": "vrjmath"
+    },
+    {
+        "name": "Alex Waitz",
+        "tag": "AlexWaitz",
+        "img": "https://avatars3.githubusercontent.com/u/26175850",
+        "tags": [
+            {
+                "id": "Full Stack",
+                "color": "red"
+            }
+        ],
+        "hackathons": 2,
+        "github": "AlexWaitz",
+        "email": "alexanderjwaitz@gmail.com",
+        "website": "https://alexwaitz.github.io/"
+    },
+    {
+        "name": "Tai Nguyen",
+        "tag": "Tainerd007",
+        "img": "https://avatars0.githubusercontent.com/u/37753526",
+        "tags": [
+            {
+                "id": "Full Stack",
+                "color": "red"
+            }
+        ],
+        "hackathons": 1,
+        "github": "Tainerd007"
+    }
 ]
