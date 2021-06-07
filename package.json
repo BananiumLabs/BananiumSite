@@ -9,15 +9,16 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
+    "ecstatic": "4.1.4",
     "http-server": "^0.11.1",
-    "ecstatic": "3.3.2",
     "npm-check": "^5.9.0"
   },
   "scripts": {
     "note": "echo ecstatic 3.3.1 due to http-server ^0.11.1 dependency.",
     "test": "echo not implemented",
     "start:hot": "echo not implemented",
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "build": "eleventy"
   },
   "repository": {
     "type": "git",
