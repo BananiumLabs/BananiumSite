@@ -5,16 +5,16 @@
         "img": "https://avatars1.githubusercontent.com/u/5799869",
         "tags": [
             {
+                "id": "Management",
+                "color": "purple lighten-1"
+            },
+            {
                 "id": "Backend",
                 "color": "black"
             },
             {
                 "id": "Hardware",
                 "color": "amber darken-1"
-            },
-            {
-                "id": "Management",
-                "color": "purple lighten-1"
             }
         ],
         "hackathons": 10,
@@ -29,16 +29,16 @@
         "img": "https://avatars2.githubusercontent.com/u/15005763",
         "tags": [
             {
+                "id": "Management",
+                "color": "purple lighten-1"
+            },
+            {
                 "id": "Full Stack",
                 "color": "red"
             },
             {
                 "id": "Frontend",
                 "color": "green"
-            },
-            {
-                "id": "Management",
-                "color": "purple lighten-1"
             }
         ],
         "hackathons": 10,
@@ -53,12 +53,12 @@
         "img": "https://avatars3.githubusercontent.com/u/8906527",
         "tags": [
             {
-                "id": "Frontend",
-                "color": "green"
-            },
-            {
                 "id": "Management",
                 "color": "purple lighten-1"
+            },
+            {
+                "id": "Frontend",
+                "color": "green"
             }
         ],
         "hackathons": 10,
@@ -91,6 +91,14 @@
         "img": "https://avatars1.githubusercontent.com/u/15772933",
         "tags": [
             {
+                "id": "Management",
+                "color": "purple lighten-1"
+            },
+            {
+                "id": "Dev Ops",
+                "color": "green darken-2"
+            },
+            {
                 "id": "Design",
                 "color": "pink"
             }
@@ -98,7 +106,7 @@
         "hackathons": 6,
         "github": "Epicrider",
         "linkedin": "omar-hossain-a2705a16a",
-        "email": "omar.hosain@gmail.com"
+        "email": "omarepic1@gmail.com"
     },
     {
         "name": "Akash Basu",
