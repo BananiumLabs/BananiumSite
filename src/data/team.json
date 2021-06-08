@@ -111,7 +111,7 @@
     {
         "name": "Akash Basu",
         "tag": "FujaX",
-        "img": "https://avatars3.githubusercontent.com/u/33015666?s=400&v=4",
+        "img": "https://avatars3.githubusercontent.com/u/33015666",
         "tags": [
             {
                 "id": "Frontend",
@@ -140,7 +140,7 @@
     {
         "name": "William Cai",
         "tag": "Ozymandias",
-        "img": "https://avatars1.githubusercontent.com/u/31721348?s=400&u=541f5b8c0193ecc710cb369879caef2c96afc864&v=4",
+        "img": "https://avatars1.githubusercontent.com/u/31721348",
         "tags": [
             {
                 "id": "Mobile",
@@ -156,7 +156,6 @@
         "linkedin": "william-cai-b271b6162",
         "email": "williamcai8@gmail.com"
     },
-
     {
         "name": "Kevin Chu",
         "tag": "XKindredKinesis",

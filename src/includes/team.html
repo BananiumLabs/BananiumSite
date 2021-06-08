@@ -7,7 +7,8 @@
                     <h2>Our Team</h2>
                     <span></span>
                     <!-- <p>100%
-                        <br>placeholder.</p> -->
+                        <br />
+                    placeholder.</p> -->
                 </div>
             </div>
         </div>
@@ -16,8 +17,7 @@
             {% for person in team %}
                 <div class="col-md-2 col-sm-6">
                 <div class="single-team text-center">
-                    <img src="{{person.img}}" alt="{{person.name}} image" class="img-responsive img-rounded lazy" loading="lazy"
-                        id="dev-image" />
+                    <img src="{{person.img}}" alt="{{person.name}} image" class="img-responsive img-rounded lazy" loading="lazy" />
                     <h4 class="team-member">{{person.name}}</h4>
                     <p>@{{person.tag}}</p>
                      <div class="card-content nopad">
@@ -30,15 +30,12 @@
                         {% if person.github %}
                             <li><a href="https://github.com/{{person.github}}"><i class="fab fa-github"></i></a></li>
                         {% endif %}
-
                         {% if person.linkedin %}
                             <li><a href="https://www.linkedin.com/in/{{person.linkedin}}"><i class="fab fa-linkedin"></i></a></li>
                         {% endif %}
-
                         {% if person.email %}
                             <li><a href="mailto:{{person.email}}"><i class="fas fa-envelope"></i></a></li>
                         {% endif %}
-
                         {% if person.website %}
                             <li><a href="{{person.website}}"><i class="fa fa-globe"></i></a></li>
                         {% endif %}
@@ -47,7 +44,6 @@
             </div>
             {% endfor %}
         </div>
-
     </div>
 </section>
 <!-- END TEAM AREA -->
