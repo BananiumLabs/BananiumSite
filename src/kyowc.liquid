@@ -453,7 +453,7 @@
             <section class="hero">
                 <h1>Hi, Open Sauce yappers!</h1>
 
-                <div class="meter panel" id="yapometer" role="img" aria-label="Yap-o-meter: a playful gauge that drains unless you keep interacting with the page.">
+                <div class="meter panel" id="yapometer">
                     <div class="meter-head">
                         <span>Yap-o-meter</span>
                         <span class="meter-state" id="meterState">Yapping</span>
@@ -482,7 +482,7 @@
                     <p class="signup-label">Mailing list</p>
                     <h2>Get plugged in</h2>
 
-                    <form name="kyowc-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="signupForm" novalidate>
+                    <form name="kyowc-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                         <input type="hidden" name="form-name" value="kyowc-signup" />
                         <p style="display:none"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
 
@@ -496,11 +496,9 @@
                                 autocomplete="email"
                                 inputmode="email"
                                 required
-                                aria-describedby="formStatus"
                             />
-                            <button type="submit" id="submitBtn">Keep me posted</button>
+                            <button type="submit">Keep me posted</button>
                         </div>
-                        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
                     </form>
 
                     <p class="signup-fineprint">Occasional project updates only. No spam, and you can unsubscribe anytime.</p>
@@ -538,6 +536,7 @@
         var booting = true;
         var mode = "";
         var flatlined = false;
+        var decayLoop = null;
 
         var HINT_DEFAULT = "Quick!!! Keep typing, scrolling, or wiggling your mouse.";
         var HINT_COOKED = "You went quiet and doomed us all. Type something or wiggle your mouse to revive.";
@@ -601,6 +600,10 @@
         }
 
         function pinMeter() {
+            if (decayLoop !== null) {
+                clearInterval(decayLoop);
+                decayLoop = null;
+            }
             pinned = true;
             booting = false;
             level = 100;
@@ -613,7 +616,7 @@
             booting = false;
             render();
 
-            setInterval(function () {
+            decayLoop = setInterval(function () {
                 if (pinned || booting || document.hidden) { return; }
                 level = Math.max(0, level - 1.1);
                 render();
@@ -667,57 +670,6 @@
             document.addEventListener("click", function () { yap(3); });
         }
 
-        /* ---------- signup form ---------- */
-        var form = document.getElementById("signupForm");
-        var emailInput = document.getElementById("email");
-        var submitBtn = document.getElementById("submitBtn");
-        var status = document.getElementById("formStatus");
-        var panel = document.getElementById("signup");
-        var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        function setStatus(message, kind) {
-            status.textContent = message;
-            status.className = "form-status" + (kind ? " " + kind : "");
-        }
-
-        emailInput.addEventListener("input", function () {
-            if (emailInput.getAttribute("aria-invalid")) {
-                emailInput.removeAttribute("aria-invalid");
-                setStatus("", null);
-            }
-        });
-
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            var email = emailInput.value.trim();
-            if (!EMAIL_RE.test(email)) {
-                emailInput.setAttribute("aria-invalid", "true");
-                setStatus("That email doesn't look right. Check it and try again.", "error");
-                emailInput.focus();
-                return;
-            }
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Connecting…";
-            setStatus("", null);
-
-            var body = new URLSearchParams(new FormData(form)).toString();
-
-            fetch("/kyowc/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: body
-            }).then(function (res) {
-                if (!res.ok) { throw new Error("HTTP " + res.status); }
-                panel.classList.add("done");
-                pinMeter();
-            }).catch(function () {
-                submitBtn.disabled = false;
-                submitBtn.textContent = "Keep me posted";
-                setStatus("Something went wrong. Check your connection and try again.", "error");
-            });
-        });
     })();
     </script>
 </body>
