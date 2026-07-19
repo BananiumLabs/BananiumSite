@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Keep Yapping or We're Cooked | Bananium Labs</title>
+    <meta name="description" content="Sign up for updates on Keep Yapping or We're Cooked: open source code, a behind-the-scenes look at our hardware simulator, and build kits." />
+    <link rel="shortcut icon" type="image/png" href="/img/favicon.ico" />
+    <meta property="og:title" content="Keep Yapping or We're Cooked" />
+    <meta property="og:description" content="Hi, Open Sauce yappers! Get the open source code, hardware simulator behind-the-scenes, and build kits." />
+    <meta property="og:url" content="https://bananium.com/kyowc/" />
+    <meta property="og:type" content="website" />
+    <style>
+        @font-face {
+            font-family: "Black Ops One";
+            src: url("/fonts/BlackOpsOne-Regular.woff2") format("woff2");
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "DSEG7 Classic";
+            src: url("/fonts/DSEG7Classic-Bold.woff2") format("woff2");
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        :root {
+            --bg: #0c0d0e;          /* deep black */
+            --steel: #191d21;       /* gunmetal panel */
+            --steel-hi: #20262b;    /* panel gradient highlight */
+            --edge: #30373e;        /* borders */
+            --fg: #e8e6df;          /* warm off-white text */
+            --muted: #8b9086;       /* secondary text */
+            --hazard: #f5c518;      /* caution yellow */
+            --led: #ff2f1f;         /* LED red */
+            --green: #3ad46a;       /* success */
+            --amber: #ffb020;       /* warning */
+            --hazard-tape: repeating-linear-gradient(-45deg, #0e0e0c 0 14px, var(--hazard) 14px 28px);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: radial-gradient(1400px 900px at 50% 28%, #16191c, var(--bg) 72%);
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+            font-size: 16px;
+            line-height: 1.65;
+            min-height: 100vh;
+        }
+
+        .stencil {
+            font-family: "Black Ops One", ui-monospace, monospace;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        a { color: var(--hazard); }
+        a:hover { color: var(--fg); }
+
+        :focus-visible {
+            outline: 2px solid var(--hazard);
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        .board {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px 64px;
+        }
+
+        /* ---- header ---- */
+        .silk-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 0 16px;
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .silk-header a {
+            color: var(--fg);
+            text-decoration: none;
+        }
+
+        .silk-header a:hover { color: var(--hazard); }
+
+        .rev {
+            color: var(--hazard);
+            border: 1px solid var(--hazard);
+            padding: 2px 8px;
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+
+        .hazard-bar {
+            height: 12px;
+            background: var(--hazard-tape);
+            border-radius: 2px;
+        }
+
+        /* ---- riveted steel panel ---- */
+        .panel {
+            background:
+                radial-gradient(circle 5px at 15px 15px, #454d54 0 3px, #14171a 3px 5px, transparent 5px),
+                radial-gradient(circle 5px at calc(100% - 15px) 15px, #454d54 0 3px, #14171a 3px 5px, transparent 5px),
+                radial-gradient(circle 5px at 15px calc(100% - 15px), #454d54 0 3px, #14171a 3px 5px, transparent 5px),
+                radial-gradient(circle 5px at calc(100% - 15px) calc(100% - 15px), #454d54 0 3px, #14171a 3px 5px, transparent 5px),
+                linear-gradient(180deg, var(--steel-hi), var(--steel));
+            border: 2px solid var(--edge);
+            border-radius: 0.6rem;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 10px 30px rgba(0, 0, 0, 0.45);
+        }
+
+        /* ---- hero ---- */
+        .hero { padding: 64px 0 0; }
+
+        .hero h1 {
+            font-family: "Black Ops One", ui-monospace, monospace;
+            font-weight: 400;
+            font-size: clamp(2.4rem, 7.5vw, 4.4rem);
+            line-height: 1.05;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            text-shadow: 0 2px 0 #000;
+            max-width: 14ch;
+        }
+
+        .hero .pitch {
+            margin-top: 28px;
+            max-width: 60ch;
+            font-size: 1.05rem;
+        }
+
+        .hero .pitch strong { font-weight: 700; color: var(--hazard); }
+
+        /* ---- yap-o-meter ---- */
+        .meter {
+            margin-top: 40px;
+            padding: 18px 20px 16px;
+        }
+
+        .meter-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .meter-state {
+            font-family: "Black Ops One", ui-monospace, monospace;
+            font-weight: 400;
+            letter-spacing: 0.18em;
+            color: var(--green);
+            text-shadow: 0 0 16px rgba(58, 212, 106, 0.6);
+        }
+
+        @keyframes led-blink {
+            50% { opacity: 0.2; }
+        }
+
+        .meter-state.blink { animation: led-blink 0.9s step-start infinite; }
+
+        .led-window {
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: #060707;
+            border: 3px solid #2b3137;
+            border-radius: 0.7rem;
+            padding: 14px 16px;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.95), inset 0 0 6px #000;
+        }
+
+        .meter-track {
+            flex: 1;
+            height: 16px;
+            border-radius: 2px;
+            background:
+                repeating-linear-gradient(90deg,
+                    transparent 0, transparent 8px,
+                    #060707 8px, #060707 10px);
+            background-color: rgba(255, 47, 31, 0.09);
+            overflow: hidden;
+        }
+
+        .meter-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--green);
+            box-shadow: 0 0 14px rgba(58, 212, 106, 0.55);
+            transition: width 120ms linear, background-color 400ms ease;
+        }
+
+        .led-digits {
+            position: relative;
+            font-family: "DSEG7 Classic", ui-monospace, monospace;
+            font-weight: 700;
+            font-size: 1.5rem;
+            line-height: 1;
+            text-align: right;
+        }
+
+        .led-ghost { color: rgba(255, 47, 31, 0.09); }
+
+        .led-value {
+            position: absolute;
+            inset: 0;
+            color: var(--led);
+            text-shadow: 0 0 14px rgba(255, 47, 31, 0.55), 0 0 44px rgba(255, 47, 31, 0.25);
+        }
+
+        .meter-hint {
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* fully drained: the page scorches */
+        .scorch {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-color: rgba(20, 2, 0, 0.4);
+            background-image: radial-gradient(ellipse at center, transparent 25%, rgba(255, 47, 31, 0.5) 100%);
+            opacity: 0;
+            transition: opacity 600ms ease;
+            z-index: 5;
+        }
+
+        body.cooked .scorch {
+            opacity: 1;
+            animation: scorch-flicker 2.4s ease-in-out infinite;
+        }
+
+        @keyframes scorch-flicker {
+            0%, 100% { opacity: 1; }
+            38% { opacity: 0.7; }
+            52% { opacity: 0.95; }
+            68% { opacity: 0.78; }
+        }
+
+        @keyframes page-jolt {
+            0%, 100% { transform: translate(0, 0); }
+            15% { transform: translate(-10px, 3px); }
+            30% { transform: translate(8px, -4px); }
+            45% { transform: translate(-6px, 2px); }
+            60% { transform: translate(5px, -2px); }
+            80% { transform: translate(-2px, 1px); }
+        }
+
+        body.cooked .board { animation: page-jolt 500ms ease; }
+
+        body.cooked .meter { border-color: #6b1a12; }
+
+        @keyframes title-flicker {
+            0%, 100% { opacity: 1; }
+            8% { opacity: 0.35; }
+            16% { opacity: 1; }
+            30% { opacity: 0.55; }
+            42% { opacity: 1; }
+        }
+
+        body.cooked .hero h1 {
+            color: var(--led);
+            text-shadow: 0 0 16px var(--led), 0 2px 0 #000;
+            animation: title-flicker 1.8s linear infinite;
+        }
+
+        /* ---- signup panel ---- */
+        .signup {
+            margin-top: 48px;
+            padding: 28px;
+        }
+
+        .signup-label {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .signup h2 {
+            margin-top: 10px;
+            font-family: "Black Ops One", ui-monospace, monospace;
+            font-weight: 400;
+            font-size: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-shadow: 0 2px 0 #000;
+            display: inline-block;
+        }
+
+        .signup h2::after {
+            content: "";
+            display: block;
+            margin-top: 8px;
+            height: 6px;
+            background: var(--hazard-tape);
+            border-radius: 1px;
+        }
+
+        .field-row {
+            margin-top: 22px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .field-row label {
+            position: absolute;
+            width: 1px; height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            min-width: 0;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--fg);
+            background: #0e1013;
+            border: 2px solid var(--edge);
+            border-radius: 0.4rem;
+            padding: 13px 16px;
+            transition: border-color 150ms ease;
+        }
+
+        input[type="email"]::placeholder { color: var(--muted); }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: var(--hazard);
+            box-shadow: 0 0 12px rgba(245, 197, 24, 0.25);
+        }
+
+        input[type="email"][aria-invalid="true"] {
+            border-color: var(--led);
+            box-shadow: 0 0 12px rgba(255, 47, 31, 0.35);
+        }
+
+        button[type="submit"] {
+            font-family: "Black Ops One", ui-monospace, monospace;
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #0c0d0e;
+            background: var(--hazard);
+            border: 2px solid #0e0e0c;
+            border-radius: 0.4rem;
+            padding: 13px 22px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: filter 150ms ease, transform 100ms ease;
+        }
+
+        button[type="submit"]:hover { filter: brightness(1.15); }
+        button[type="submit"]:active { transform: translateY(1px); }
+
+        button[type="submit"][disabled] {
+            opacity: 0.7;
+            cursor: wait;
+        }
+
+        .form-status {
+            margin-top: 12px;
+            min-height: 1.4em;
+            font-size: 0.85rem;
+        }
+
+        .form-status.error { color: var(--led); text-shadow: 0 0 10px rgba(255, 47, 31, 0.4); }
+        .form-status.ok { color: var(--green); }
+
+        .signup-fineprint {
+            margin-top: 14px;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .signup-success { display: none; }
+
+        .signup-success h2 {
+            color: var(--green);
+            text-shadow: 0 0 16px rgba(58, 212, 106, 0.6), 0 2px 0 #000;
+        }
+
+        .signup-success h2::after { background: var(--green); height: 3px; }
+
+        .signup-success p { margin-top: 14px; max-width: 52ch; }
+
+        .signup.done .signup-form-wrap { display: none; }
+        .signup.done .signup-success { display: block; }
+
+        /* ---- footer ---- */
+        footer {
+            margin-top: 64px;
+            padding-top: 20px;
+            border-top: 1px solid var(--edge);
+            font-size: 12px;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        @media (max-width: 560px) {
+            .hero { padding-top: 44px; }
+            .field-row { flex-direction: column; }
+            button[type="submit"] { width: 100%; }
+            .signup { padding: 24px 18px; }
+            .led-window { gap: 12px; padding: 12px; }
+            .led-digits { font-size: 1.2rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .meter-fill { transition: none; }
+            .meter-state.blink { animation: none; }
+            .scorch { transition: none; }
+            body.cooked .scorch { animation: none; }
+            body.cooked .board { animation: none; }
+            body.cooked .hero h1 { animation: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="scorch" aria-hidden="true"></div>
+    <div class="board">
+        <header class="silk-header">
+            <a href="https://bananium.com/">&#9679; Bananium Labs</a>
+            <span class="rev">KYOWC &middot; REV A</span>
+        </header>
+        <div class="hazard-bar" aria-hidden="true"></div>
+
+        <main>
+            <section class="hero">
+                <h1>Hi, Open Sauce yappers!</h1>
+
+                <div class="meter panel" id="yapometer" role="img" aria-label="Yap-o-meter: a playful gauge that drains unless you keep interacting with the page.">
+                    <div class="meter-head">
+                        <span>Yap-o-meter</span>
+                        <span class="meter-state" id="meterState">Yapping</span>
+                    </div>
+                    <div class="led-window">
+                        <div class="meter-track">
+                            <div class="meter-fill" id="meterFill"></div>
+                        </div>
+                        <div class="led-digits" aria-hidden="true">
+                            <span class="led-ghost">888</span>
+                            <span class="led-value" id="meterDigits">000</span>
+                        </div>
+                    </div>
+                    <p class="meter-hint" id="meterHint">Quick!!! Keep typing, scrolling, or wiggling your mouse.</p>
+                </div>
+
+                <p class="pitch">
+                    If you want updates on <strong>Keep Yapping or We're Cooked</strong>,
+                    drop your email below. We'll send you the open source code, a
+                    behind-the-scenes look at our hardware simulator, and build kits.
+                </p>
+            </section>
+
+            <section class="signup panel" id="signup">
+                <div class="signup-form-wrap">
+                    <p class="signup-label">Mailing list</p>
+                    <h2>Get plugged in</h2>
+
+                    <form name="kyowc-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="signupForm" novalidate>
+                        <input type="hidden" name="form-name" value="kyowc-signup" />
+                        <p style="display:none"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+
+                        <div class="field-row">
+                            <label for="email">Email address</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                inputmode="email"
+                                required
+                                aria-describedby="formStatus"
+                            />
+                            <button type="submit" id="submitBtn">Keep me posted</button>
+                        </div>
+                        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                    </form>
+
+                    <p class="signup-fineprint">Occasional project updates only. No spam, and you can unsubscribe anytime.</p>
+                </div>
+
+                <div class="signup-success" aria-live="polite">
+                    <p class="signup-label">Mailing list &middot; connected</p>
+                    <h2>You're on the list.</h2>
+                    <p>Thanks for signing up. We'll email you when the open source code,
+                    the simulator behind-the-scenes, and build kits are ready.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <span>&copy; Bananium Labs</span>
+            <a href="https://bananium.com/">bananium.com</a>
+        </footer>
+    </div>
+
+    <script>
+    (function () {
+        "use strict";
+
+        /* ---------- yap-o-meter ---------- */
+        var fill = document.getElementById("meterFill");
+        var state = document.getElementById("meterState");
+        var hint = document.getElementById("meterHint");
+        var digits = document.getElementById("meterDigits");
+        var title = document.querySelector(".hero h1");
+        var TITLE_DEFAULT = title.textContent;
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var level = 0;
+        var pinned = false;
+        var booting = true;
+        var mode = "";
+        var flatlined = false;
+
+        var HINT_DEFAULT = "Quick!!! Keep typing, scrolling, or wiggling your mouse.";
+        var HINT_COOKED = "You went quiet and doomed us all. Type something or wiggle your mouse to revive.";
+
+        var css = getComputedStyle(document.documentElement);
+        var GREEN = css.getPropertyValue("--green").trim();
+        var AMBER = css.getPropertyValue("--amber").trim();
+        var RED = css.getPropertyValue("--led").trim();
+
+        function setStateStyle(color, glow) {
+            state.style.color = color;
+            state.style.textShadow = "0 0 16px " + glow;
+            fill.style.backgroundColor = color;
+            fill.style.boxShadow = "0 0 14px " + glow;
+        }
+
+        function render() {
+            fill.style.width = level + "%";
+            digits.textContent = String(Math.round(level)).padStart(3, "0");
+
+            var isFlat = !pinned && !booting && level <= 0;
+            if (isFlat !== flatlined) {
+                flatlined = isFlat;
+                document.body.classList.toggle("cooked", flatlined);
+                title.textContent = flatlined ? "We're cooked." : TITLE_DEFAULT;
+            }
+
+            var next;
+            if (pinned) { next = "pinned"; }
+            else if (level > 55) { next = "yapping"; }
+            else if (level > 22) { next = "steam"; }
+            else { next = "cooked"; }
+            if (next === mode) { return; }
+            mode = next;
+
+            state.classList.remove("blink");
+            if (mode === "pinned") {
+                setStateStyle(GREEN, "rgba(58, 212, 106, 0.6)");
+                state.textContent = "Certified yapper";
+                hint.textContent = "Meter pinned. Thanks for signing up.";
+            } else if (mode === "yapping") {
+                setStateStyle(GREEN, "rgba(58, 212, 106, 0.6)");
+                state.textContent = "Yapping";
+                hint.textContent = HINT_DEFAULT;
+            } else if (mode === "steam") {
+                setStateStyle(AMBER, "rgba(255, 176, 32, 0.55)");
+                state.textContent = "Losing steam";
+                hint.textContent = HINT_DEFAULT;
+            } else {
+                setStateStyle(RED, "rgba(255, 47, 31, 0.6)");
+                state.textContent = "Cooked";
+                state.classList.add("blink");
+                hint.textContent = HINT_COOKED;
+            }
+        }
+
+        function yap(amount) {
+            if (pinned || booting) { return; }
+            level = Math.min(100, level + amount);
+            render();
+        }
+
+        function pinMeter() {
+            pinned = true;
+            booting = false;
+            level = 100;
+            render();
+        }
+
+        function goLive() {
+            fill.style.transition = "";
+            level = 70;
+            booting = false;
+            render();
+
+            setInterval(function () {
+                if (pinned || booting || document.hidden) { return; }
+                level = Math.max(0, level - 1.1);
+                render();
+            }, 150);
+        }
+
+        // Power-on self-test: sweep the bar to full, drop, then settle and go live.
+        function boot() {
+            state.textContent = "Self-test";
+            setStateStyle(AMBER, "rgba(255, 176, 32, 0.55)");
+            fill.style.width = "0%";
+            digits.textContent = "888";
+
+            setTimeout(function () {
+                if (pinned) { return; }
+                fill.style.transition = "width 450ms ease-in";
+                fill.style.width = "100%";
+            }, 150);
+            setTimeout(function () {
+                if (pinned) { return; }
+                fill.style.transition = "width 400ms ease-out";
+                fill.style.width = "10%";
+            }, 700);
+            setTimeout(function () {
+                if (pinned) { return; }
+                fill.style.transition = "width 350ms ease";
+                fill.style.width = "70%";
+            }, 1150);
+            setTimeout(function () {
+                if (!pinned) { goLive(); }
+            }, 1550);
+        }
+
+        if (reduceMotion) {
+            // No boot sweep or decay loop; the meter sits full and calm.
+            booting = false;
+            level = 100;
+            render();
+            hint.textContent = "Meter holding steady.";
+        } else {
+            boot();
+
+            var lastMove = 0;
+            document.addEventListener("mousemove", function () {
+                var now = performance.now();
+                if (now - lastMove > 120) { lastMove = now; yap(1.5); }
+            }, { passive: true });
+            document.addEventListener("scroll", function () { yap(2); }, { passive: true });
+            document.addEventListener("keydown", function () { yap(4); });
+            document.addEventListener("touchmove", function () { yap(3); }, { passive: true });
+            document.addEventListener("click", function () { yap(3); });
+        }
+
+        /* ---------- signup form ---------- */
+        var form = document.getElementById("signupForm");
+        var emailInput = document.getElementById("email");
+        var submitBtn = document.getElementById("submitBtn");
+        var status = document.getElementById("formStatus");
+        var panel = document.getElementById("signup");
+        var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        function setStatus(message, kind) {
+            status.textContent = message;
+            status.className = "form-status" + (kind ? " " + kind : "");
+        }
+
+        emailInput.addEventListener("input", function () {
+            if (emailInput.getAttribute("aria-invalid")) {
+                emailInput.removeAttribute("aria-invalid");
+                setStatus("", null);
+            }
+        });
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            var email = emailInput.value.trim();
+            if (!EMAIL_RE.test(email)) {
+                emailInput.setAttribute("aria-invalid", "true");
+                setStatus("That email doesn't look right. Check it and try again.", "error");
+                emailInput.focus();
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Connecting…";
+            setStatus("", null);
+
+            var body = new URLSearchParams(new FormData(form)).toString();
+
+            fetch("/kyowc/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: body
+            }).then(function (res) {
+                if (!res.ok) { throw new Error("HTTP " + res.status); }
+                panel.classList.add("done");
+                pinMeter();
+            }).catch(function () {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Keep me posted";
+                setStatus("Something went wrong. Check your connection and try again.", "error");
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
