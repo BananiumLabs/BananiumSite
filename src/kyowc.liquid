@@ -4,12 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Keep Yapping or We're Cooked | Bananium Labs</title>
-    <meta name="description" content="Sign up for updates on Keep Yapping or We're Cooked: open source code, a behind-the-scenes look at our hardware simulator, and build kits." />
-    <link rel="shortcut icon" type="image/png" href="/img/favicon.ico" />
+    <meta name="description" content="Sign up for updates on Keep Yapping or We're Cooked: open source code, a behind-the-scenes look at our hardware simulator, build kits, and a 3D-printable STL of our frog mascot." />
+    <link rel="icon" type="image/png" href="/img/kyowc-sticker.png" />
     <meta property="og:title" content="Keep Yapping or We're Cooked" />
-    <meta property="og:description" content="Hi, Open Sauce yappers! Get the open source code, hardware simulator behind-the-scenes, and build kits." />
+    <meta property="og:description" content="Hi, Open Sauce yappers! Get the open source code, hardware simulator behind-the-scenes, build kits, and a printable STL of our frog mascot." />
     <meta property="og:url" content="https://bananium.com/kyowc/" />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://bananium.com/img/kyowc-sticker.png" />
     <style>
         @font-face {
             font-family: "Black Ops One";
@@ -122,6 +123,31 @@
 
         /* ---- hero ---- */
         .hero { padding: 64px 0 0; }
+
+        .hero-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .mascot {
+            width: clamp(84px, 16vw, 132px);
+            height: auto;
+            flex-shrink: 0;
+            margin-top: 4px;
+            transform: rotate(8deg);
+            filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.55));
+            transition: transform 500ms ease, filter 500ms ease;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        /* flatlined: the frog is cooked too */
+        body.cooked .mascot {
+            transform: rotate(188deg);
+            filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.55)) brightness(0.8);
+        }
 
         .hero h1 {
             font-family: "Black Ops One", ui-monospace, monospace;
@@ -280,6 +306,105 @@
             animation: title-flicker 1.8s linear infinite;
         }
 
+        /* ---- module lineup ---- */
+        .modules {
+            margin-top: 48px;
+            padding: 28px;
+        }
+
+        .module-grid {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .module {
+            background: #060707;
+            border: 2px solid #2b3137;
+            border-radius: 0.5rem;
+            padding: 16px 10px 12px;
+            text-align: center;
+            box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.9);
+        }
+
+        .module img {
+            width: 72px;
+            height: 72px;
+            image-rendering: pixelated;
+        }
+
+        .module figcaption {
+            margin-top: 10px;
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* ---- printable STL panel ---- */
+        .stl {
+            margin-top: 48px;
+            padding: 28px;
+        }
+
+        .modules h2,
+        .stl h2 {
+            margin-top: 10px;
+            font-family: "Black Ops One", ui-monospace, monospace;
+            font-weight: 400;
+            font-size: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-shadow: 0 2px 0 #000;
+        }
+
+        .stl-window {
+            margin-top: 18px;
+            background: #060707;
+            border: 3px solid #2b3137;
+            border-radius: 0.7rem;
+            padding: 12px;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.95), inset 0 0 6px #000;
+        }
+
+        .stl-window img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 0.3rem;
+        }
+
+        .stl-caption {
+            margin-top: 14px;
+            max-width: 62ch;
+        }
+
+        .yap-note {
+            float: right;
+            width: 148px;
+            margin: 0 0 12px 16px;
+            padding: 10px;
+            background: #efe9da;
+            border-radius: 0.4rem;
+            transform: rotate(3deg);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+        }
+
+        .yap-note img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 560px) {
+            .stl { padding: 24px 18px; }
+            .modules { padding: 24px 18px; }
+            .module-grid { grid-template-columns: repeat(2, 1fr); }
+            .yap-note { width: 104px; margin: 0 0 8px 10px; }
+        }
+
         /* ---- signup panel ---- */
         .signup {
             margin-top: 48px;
@@ -404,6 +529,13 @@
 
         .signup-success p { margin-top: 14px; max-width: 52ch; }
 
+        .signup-success .mascot {
+            float: right;
+            width: 76px;
+            margin: 0 0 8px 12px;
+            transform: rotate(-8deg);
+        }
+
         .signup.done .signup-form-wrap { display: none; }
         .signup.done .signup-success { display: block; }
 
@@ -434,6 +566,7 @@
             .meter-fill { transition: none; }
             .meter-state.blink { animation: none; }
             .scorch { transition: none; }
+            .mascot { transition: none; }
             body.cooked .scorch { animation: none; }
             body.cooked .board { animation: none; }
             body.cooked .hero h1 { animation: none; }
@@ -445,13 +578,16 @@
     <div class="board">
         <header class="silk-header">
             <a href="https://bananium.com/">&#9679; Bananium Labs</a>
-            <span class="rev">KYOWC &middot; REV A</span>
+            <span class="rev">KYOWC REV A</span>
         </header>
         <div class="hazard-bar" aria-hidden="true"></div>
 
         <main>
             <section class="hero">
-                <h1>Hi, Open Sauce yappers!</h1>
+                <div class="hero-top">
+                    <h1>Hi, Open Sauce yappers!</h1>
+                    <img class="mascot" id="mascot" src="/img/kyowc-sticker.png" alt="The KYOWC mascot: a happy frog holding drumsticks, on a yellow starburst sticker" width="144" height="144" />
+                </div>
 
                 <div class="meter panel" id="yapometer">
                     <div class="meter-head">
@@ -473,12 +609,59 @@
                 <p class="pitch">
                     If you want updates on <strong>Keep Yapping or We're Cooked</strong>,
                     drop your email below. We'll send you the open source code, a
-                    behind-the-scenes look at our hardware simulator, and build kits.
+                    behind-the-scenes look at our hardware simulator, build kits, and a
+                    3D-printable STL of our frog mascot so you can put one on your own desk.
+                </p>
+            </section>
+
+            <section class="modules panel">
+                <p class="signup-label">Module lineup</p>
+                <h2>The modules</h2>
+                <div class="module-grid">
+                    <figure class="module">
+                        <img src="/img/kyowc-module-core.png" alt="" width="512" height="512" loading="lazy" />
+                        <figcaption>Core</figcaption>
+                    </figure>
+                    <figure class="module">
+                        <img src="/img/kyowc-module-button.png" alt="" width="512" height="512" loading="lazy" />
+                        <figcaption>Button</figcaption>
+                    </figure>
+                    <figure class="module">
+                        <img src="/img/kyowc-module-fidget-spinner.png" alt="" width="512" height="512" loading="lazy" />
+                        <figcaption>Fidget Spinner</figcaption>
+                    </figure>
+                    <figure class="module">
+                        <img src="/img/kyowc-module-maze.png" alt="" width="512" height="512" loading="lazy" />
+                        <figcaption>Maze</figcaption>
+                    </figure>
+                    <figure class="module">
+                        <img src="/img/kyowc-module-resistance.png" alt="" width="512" height="512" loading="lazy" />
+                        <figcaption>Resistance</figcaption>
+                    </figure>
+                    <figure class="module">
+                        <img src="/img/kyowc-module-wave.png" alt="" width="512" height="512" loading="lazy" />
+                        <figcaption>Wave</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="stl panel">
+                <p class="signup-label">Print preview</p>
+                <h2>Print your own frog</h2>
+                <div class="stl-window">
+                    <img src="/img/kyowc-stl-preview.jpg" alt="3D render of the printable frog mascot, shown from the front and the side, holding a blue and a red dynamite stick" width="1408" height="743" loading="lazy" />
+                </div>
+                <p class="stl-caption">
+                    This frog has seen some things. Get your own traumatized frog for
+                    your desk!
                 </p>
             </section>
 
             <section class="signup panel" id="signup">
                 <div class="signup-form-wrap">
+                    <div class="yap-note" aria-hidden="true">
+                        <img src="/img/kyowc-yap.png" alt="" width="320" height="320" loading="lazy" />
+                    </div>
                     <p class="signup-label">Mailing list</p>
                     <h2>Get plugged in</h2>
 
@@ -505,10 +688,12 @@
                 </div>
 
                 <div class="signup-success" aria-live="polite">
-                    <p class="signup-label">Mailing list &middot; connected</p>
+                    <img class="mascot" src="/img/kyowc-sticker.png" alt="" aria-hidden="true" width="144" height="144" />
+                    <p class="signup-label">Mailing list connected</p>
                     <h2>You're on the list.</h2>
                     <p>Thanks for signing up. We'll email you when the open source code,
-                    the simulator behind-the-scenes, and build kits are ready.</p>
+                    the simulator behind-the-scenes, build kits, and the printable
+                    mascot STL are ready.</p>
                 </div>
             </section>
         </main>
@@ -530,6 +715,10 @@
         var digits = document.getElementById("meterDigits");
         var title = document.querySelector(".hero h1");
         var TITLE_DEFAULT = title.textContent;
+        var mascot = document.getElementById("mascot");
+        var MASCOT_DEFAULT = mascot.src;
+        var MASCOT_COOKED = "/img/kyowc-sticker-bw.png";
+        new Image().src = MASCOT_COOKED;
         var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         var level = 0;
         var pinned = false;
@@ -562,6 +751,7 @@
                 flatlined = isFlat;
                 document.body.classList.toggle("cooked", flatlined);
                 title.textContent = flatlined ? "We're cooked." : TITLE_DEFAULT;
+                mascot.src = flatlined ? MASCOT_COOKED : MASCOT_DEFAULT;
             }
 
             var next;
